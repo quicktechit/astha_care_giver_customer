@@ -180,42 +180,40 @@ class _RentalPointPageState extends State<RentalPointPage> {
             color: white,
             child: Padding(
               padding: paddingH10V20,
-              child: Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    KText(
-                      text: 'Location',
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    sizeH5,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  KText(
+                    text: 'Location',
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  sizeH5,
 
-                    /// pick up point
-                    PickUp(),
-                    sizeH5,
+                  /// pick up point
+                  PickUp(),
+                  sizeH5,
 
-                    /// via location
-                    // Visibility(
-                    //   visible: showViaLocation,
-                    //   child: ViaLocation(),
-                    // ),
+                  /// via location
+                  // Visibility(
+                  //   visible: showViaLocation,
+                  //   child: ViaLocation(),
+                  // ),
 
-                    /// drop point
-                    // sizeH10,
-                    //
-                    // KText(
-                    //   text: 'dropOffPoint',
-                    //   fontSize: 16,
-                    //   fontWeight: FontWeight.bold,
-                    // ),
-                    // sizeH5,
+                  /// drop point
+                  // sizeH10,
+                  //
+                  // KText(
+                  //   text: 'dropOffPoint',
+                  //   fontSize: 16,
+                  //   fontWeight: FontWeight.bold,
+                  // ),
+                  // sizeH5,
 
-                    /// drop pont
-                    // DropWidget()
-                  ],
-                ),
+                  /// drop pont
+                  // DropWidget()
+                ],
               ),
             ),
           ),
