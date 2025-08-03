@@ -70,7 +70,7 @@ class _ReturnDateAndTimeState extends State<ReturnDateAndTime> {
           Padding(
             padding: EdgeInsets.only(left: 10, top: 10),
             child: KText(
-              text: 'RETURNDATETIME',
+              text: 'Selected Date',
               fontSize: 12,
             ),
           ),

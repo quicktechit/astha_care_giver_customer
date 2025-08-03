@@ -97,7 +97,7 @@ class _DashboardViewState extends State<DashboardView> {
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.history),
-                  label: 'tripHistory'.tr,
+                  label: 'History'.tr,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.settings),

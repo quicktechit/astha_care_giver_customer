@@ -25,7 +25,7 @@ class PartnerBidAreaDetails extends StatelessWidget {
           children: [
             Icon(CupertinoIcons.location_solid,size: 15,),
             KText(
-              text: "Pick UP Location",
+              text: "Location",
               fontSize: 11,
               fontWeight: FontWeight.w400,
             ),
@@ -35,34 +35,35 @@ class PartnerBidAreaDetails extends StatelessWidget {
           text: "  $areaOne",
           fontSize: 16,
           fontWeight: FontWeight.w600,
+          maxLines: 5,textAlign: TextAlign.start,
         ),
-        sizeH5,
-        Container(
-          height: .5,
-          width: Get.width,
-          color: grey.shade300,
-        ),
-        sizeH5,
-        Row(
-          children: [
-            Icon(CupertinoIcons.location_solid,size: 15,),
-            KText(
-              text: "Drop Of Location",
-              fontSize: 11,
-              fontWeight: FontWeight.w400,
-            ),
-          ],
-        ),
-        KText(
-          text: "  $areaTwo",
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
-        sizeH5,
-        Divider(),
-        PartnerFeeWidget(
-          partnerFee: feeOfPartner,
-        ),
+        // sizeH5,
+        // Container(
+        //   height: .5,
+        //   width: Get.width,
+        //   color: grey.shade300,
+        // ),
+        // sizeH5,
+        // Row(
+        //   children: [
+        //     Icon(CupertinoIcons.location_solid,size: 15,),
+        //     KText(
+        //       text: "Drop Of Location",
+        //       fontSize: 11,
+        //       fontWeight: FontWeight.w400,
+        //     ),
+        //   ],
+        // ),
+        // KText(
+        //   text: "  $areaTwo",
+        //   fontSize: 16,
+        //   fontWeight: FontWeight.w600,
+        // ),
+        // sizeH5,
+        // Divider(),
+        // PartnerFeeWidget(
+        //   partnerFee: feeOfPartner,
+        // ),
       ],
     );
   }

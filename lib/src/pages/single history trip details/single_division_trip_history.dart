@@ -98,8 +98,8 @@ class _SingleDivisionTripHistory extends State<SingleDivisionTripHistory> {
                             ?.name
                             .toString() ??
                         '',
-                    capacity:
-                        "${_singleTripDetailsController.singleDivisionTripDetailsModel.value.data?.tripHistory?.getvehicle?.capacity.toString()} Seats Capacity",
+                    // capacity:
+                    //     "${_singleTripDetailsController.singleDivisionTripDetailsModel.value.data?.tripHistory?.getvehicle?.capacity.toString()} Seats Capacity",
                   ),
                   SizedBox(height: 20.h),
                   _singleTripDetailsController.singleDivisionTripDetailsModel

@@ -79,7 +79,7 @@ class _AirportPage extends State<AirportPage> {
               : CarSelectedOption(
             carImg: widget.carImg,
             carName: widget.carName,
-            capacity: "${widget.capacity} Seats Capacity",
+            // capacity: "${widget.capacity} Seats Capacity",
           ),
           sizeH5,
 
@@ -608,38 +608,38 @@ class _AirportPage extends State<AirportPage> {
                         );
                       debugPrint('Category id ::: ${widget.tripType}');
                       if(locationController.dropLocation.isNotEmpty){
-                        Get.to(() => TripDetailsPage(
-                          carImg: widget.carImg,
-                          carName: widget.carName,
-                          capacity: widget.capacity,
-                          carId: widget.carId,
-                          pickUpPoint: widget.isAirport == true &&
-                              airportController
-                                  .selectedLocation.value ==
-                                  'Airport'
-                              ? airportController.selectedAirport.value
-                              : locationController.pickUpLocation
-                              .toString(),
-                          dropPoint: widget.isAirport == true &&
-                              airportController
-                                  .selectedLocation.value ==
-                                  'Home'
-                              ? airportController.selectedAirport.value
-                              : locationController.dropLocation
-                              .toString(),
-                          viaPoint:
-                          locationController.viaLocation.toString(),
-                          // note: noteController.text,
-                          tripDetailsJourney: journeyTimeAndDate,
-                          roundTrip: roundTripValue.toString(),
-                          map: airportController.selectedCoordinates.value,
-                          roundTripDetailsJourney:
-                          returnJourneyTimeAndDate,
-                          // isAirport:
-                          // widget.isAirport == true ? true : false,
-                          dropOffMap: dropOfLatAndLang.toString(),
-                          category_id: widget.category_id, note:  noteController.text,
-                        ));
+                        // Get.to(() => TripDetailsPage(
+                        //   carImg: widget.carImg,
+                        //   carName: widget.carName,
+                        //   capacity: widget.capacity,
+                        //   carId: widget.carId,
+                        //   pickUpPoint: widget.isAirport == true &&
+                        //       airportController
+                        //           .selectedLocation.value ==
+                        //           'Airport'
+                        //       ? airportController.selectedAirport.value
+                        //       : locationController.pickUpLocation
+                        //       .toString(),
+                        //   dropPoint: widget.isAirport == true &&
+                        //       airportController
+                        //           .selectedLocation.value ==
+                        //           'Home'
+                        //       ? airportController.selectedAirport.value
+                        //       : locationController.dropLocation
+                        //       .toString(),
+                        //   viaPoint:
+                        //   locationController.viaLocation.toString(),
+                        //   // note: noteController.text,
+                        //   tripDetailsJourney: journeyTimeAndDate,
+                        //   roundTrip: roundTripValue.toString(),
+                        //   map: airportController.selectedCoordinates.value,
+                        //   roundTripDetailsJourney:
+                        //   returnJourneyTimeAndDate,
+                        //   // isAirport:
+                        //   // widget.isAirport == true ? true : false,
+                        //   dropOffMap: dropOfLatAndLang.toString(),
+                        //   category_id: widget.category_id, note:  noteController.text,
+                        // ));
                       }
                     }
 

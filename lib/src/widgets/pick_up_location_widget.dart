@@ -32,7 +32,8 @@ class _PickUpState extends State<PickUp> {
               },
               decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'PickUp  Point',
+                  hintText: 'Location',
+                  prefixIcon:Icon(Icons.location_on_outlined),
                   suffixIcon:  locationController.pickUpC.text.trim().isEmpty?null: GestureDetector(
                       onTap: (){
                         setState(() {

@@ -96,7 +96,7 @@ class _AmbulancePage extends State<AmbulancePage> {
           CarSelectedOption(
             carImg: widget.carImg,
             carName: widget.carName,
-            capacity: "${widget.capacity} Seats Capacity",
+            // capacity: "${widget.capacity} Seats Capacity",
           ),
           sizeH5,
 
@@ -429,26 +429,26 @@ class _AmbulancePage extends State<AmbulancePage> {
                         vehicleId: widget.carId,
                         dropMap: dropOfLatAndLang, note: noteController.text,
                       );
-
-                    Get.to(() => TripDetailsPage(
-                      carImg: widget.carImg,
-                      carName: widget.carName,
-                      capacity: widget.capacity,
-                      carId: widget.carId,
-                      pickUpPoint: locationController.pickUpLocation
-                          .toString(),
-                      dropPoint:
-                      locationController.dropLocation.toString(),
-                      viaPoint:
-                      locationController.viaLocation.toString(),
-                      tripDetailsJourney: journeyTimeAndDate,
-                      roundTrip: roundTripValue.toString(),
-                      map: pickLatAndLang.toString(),
-                      roundTripDetailsJourney:
-                      returnJourneyTimeAndDate,
-                      dropOffMap: dropOfLatAndLang.toString(),
-                      category_id: widget.category_id, note:  noteController.text,
-                    ));
+                    //
+                    // Get.to(() => TripDetailsPage(
+                    //   carImg: widget.carImg,
+                    //   carName: widget.carName,
+                    //   capacity: widget.capacity,
+                    //   carId: widget.carId,
+                    //   pickUpPoint: locationController.pickUpLocation
+                    //       .toString(),
+                    //   dropPoint:
+                    //   locationController.dropLocation.toString(),
+                    //   viaPoint:
+                    //   locationController.viaLocation.toString(),
+                    //   tripDetailsJourney: journeyTimeAndDate,
+                    //   roundTrip: roundTripValue.toString(),
+                    //   map: pickLatAndLang.toString(),
+                    //   roundTripDetailsJourney:
+                    //   returnJourneyTimeAndDate,
+                    //   dropOffMap: dropOfLatAndLang.toString(),
+                    //   category_id: widget.category_id, note:  noteController.text,
+                    // ));
                   },
                 ),
               ),

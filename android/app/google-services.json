@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "816144966935",
-    "project_id": "gari-lagbee",
-    "storage_bucket": "gari-lagbee.firebasestorage.app"
+    "project_number": "60676382250",
+    "project_id": "astha-care-giver",
+    "storage_bucket": "astha-care-giver.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:816144966935:android:de3c1297da1cba952e8352",
+        "mobilesdk_app_id": "1:60676382250:android:2964818541805810f3ed53",
         "android_client_info": {
-          "package_name": "com.quicktechit.garilagbee.app"
+          "package_name": "com.quicktechit.asthacaregiver.app"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBpMiwy7h4Zp6KHoQSONr6SqqR-4K1qQ5Y"
+          "current_key": "AIzaSyDf3vtxNKOtreDmPwKbcNUIgu8FC4cpDVU"
         }
       ],
       "services": {

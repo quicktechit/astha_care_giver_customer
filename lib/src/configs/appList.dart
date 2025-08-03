@@ -1,31 +1,37 @@
 const gridTitleList = [
-  'Car Rental',
-  'AirPort Trip',
-  'return',
-  // 'Tourist Bus',
-  'truck',
-  'Ambulance'
+  'All Service',
+  'My Service',
+  // 'Critical Care',
+  // // 'Tourist Bus',
+  // 'Neuro Care',
+  // 'Physuitherapy Service'
 ];
 
+const banner=[
+  'assets/images/banner.jpg','assets/images/banner1.jpg', 'assets/images/banner.jpg','assets/images/banner1.jpg',
+];
+
+
 const gridImageList = [
-  'assets/images/pngegg-(2).png',
-  'assets/images/airport main.png',
-  'assets/images/return main.png',
-  // 'assets/images/car10.png',
-  'assets/images/car6.webp',
-  'assets/images/Winger-Ambulance.png'
+  'assets/icons/flat-nurse.png',
+  'assets/icons/nurse certified.png',
+  'assets/icons/critical care.png',
+  // // 'assets/images/car10.png',
+  'assets/icons/newro care.png',
+  'assets/icons/Physuitherapy Service.png',
+  'assets/icons/critical care.png',
 ];
 const gridTitleList2 = [
-  "Tourist Bus",
-  "Luxury Car",
-  'Special Offer',
-  "ToDays Offer",
-  'Wedding Program',
-  'Ambulance & Freezing car',
-  'Office Pick & Drop Service',
-  'Car Monthly Rent',
-  'Driver Supply',
-  'Driver Training',
+  "Care giver",
+  "Nurse Certified",
+  'Critical Care',
+  "Neuro Care",
+  'Physuitherapy Service',
+  'Baby-Nanny Care',
+  // 'Office Pick & Drop Service',
+  // 'Car Monthly Rent',
+  // 'Driver Supply',
+  // 'Driver Training',
 ];
 const gridImageList2 = [
   "assets/images/car10.png",

@@ -12,10 +12,10 @@ class EmptyBoxWidget extends StatelessWidget {
         children: [
           Image.asset(
             "assets/images/empty.png",
-            width: 150,
+            width: 220,
           ),
           KText(
-            text: title,textAlign: TextAlign.center,
+            text: "No Service Found",textAlign: TextAlign.center,
             fontWeight: FontWeight.bold,
           ),
         ],

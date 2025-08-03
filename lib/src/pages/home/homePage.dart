@@ -135,85 +135,85 @@ class _HomePageState extends State<HomePage> {
         title: 'Customer App',
         scaffoldKey: _scaffoldKey,
       ),
-      floatingActionButtonLocation: ExpandableFab.location,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 50),
-        child: ExpandableFab(
-          openButtonBuilder: RotateFloatingActionButtonBuilder(
-            child: Image.asset(
-              'assets/animations/whatsapp.png',
-              width: 40,
-            ),
-            fabSize: ExpandableFabSize.regular,
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.green,
-            shape: const CircleBorder(),
-          ),
-          closeButtonBuilder: DefaultFloatingActionButtonBuilder(
-            child: const Icon(Icons.close),
-            fabSize: ExpandableFabSize.regular,
-            foregroundColor: Colors.red,
-            backgroundColor: Colors.white,
-            shape: const CircleBorder(),
-          ),
-          overlayStyle: ExpandableFabOverlayStyle(
-            color: Colors.white.withOpacity(0.8),
-            blur: 2.0,
-          ),
-          type: ExpandableFabType.up,
-          distance: 50,
-          key: _key,
-          children: [
-            SizedBox(),
-            Row(
-              children: [
-                Text(
-                  'Message(WhatsApp)',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                SizedBox(width: 20),
-                FloatingActionButton.small(
-                  heroTag: null,
-                  onPressed: () async {
-                    String contact = "8801968732222";
-                    String text = 'hi';
-                    final String encodedMessage = Uri.encodeComponent(
-                        text);
-                    final Uri uri = Uri.parse('https://wa.me/$contact?text=$encodedMessage');
-                    if (!await launchUrl(
-                      uri,
-                      mode: LaunchMode.externalApplication,
-                    )) {
-                      throw Exception('Could not launch $uri');
-                    }
-                  },
-                  child: Icon(Icons.message_outlined),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  'Message(Facebook)',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                SizedBox(width: 20),
-                FloatingActionButton.small(
-                  heroTag: null,
-                  onPressed: () async {
-                    final Uri url = Uri.parse(
-                        'https://www.facebook.com/share/1Lg9wSxWcE/');
-                    if (!await launchUrl(url)) {
-                      throw Exception('Could not launch $url');
-                    }
-                  },
-                  child: Icon(Icons.send_outlined),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      // floatingActionButtonLocation: ExpandableFab.location,
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.only(bottom: 50),
+      //   child: ExpandableFab(
+      //     openButtonBuilder: RotateFloatingActionButtonBuilder(
+      //       child: Image.asset(
+      //         'assets/animations/whatsapp.png',
+      //         width: 40,
+      //       ),
+      //       fabSize: ExpandableFabSize.regular,
+      //       foregroundColor: Colors.white,
+      //       backgroundColor: Colors.green,
+      //       shape: const CircleBorder(),
+      //     ),
+      //     closeButtonBuilder: DefaultFloatingActionButtonBuilder(
+      //       child: const Icon(Icons.close),
+      //       fabSize: ExpandableFabSize.regular,
+      //       foregroundColor: Colors.red,
+      //       backgroundColor: Colors.white,
+      //       shape: const CircleBorder(),
+      //     ),
+      //     overlayStyle: ExpandableFabOverlayStyle(
+      //       color: Colors.white.withOpacity(0.8),
+      //       blur: 2.0,
+      //     ),
+      //     type: ExpandableFabType.up,
+      //     distance: 50,
+      //     key: _key,
+      //     children: [
+      //       SizedBox(),
+      //       Row(
+      //         children: [
+      //           Text(
+      //             'Message(WhatsApp)',
+      //             style: TextStyle(fontWeight: FontWeight.bold),
+      //           ),
+      //           SizedBox(width: 20),
+      //           FloatingActionButton.small(
+      //             heroTag: null,
+      //             onPressed: () async {
+      //               String contact = "";
+      //               String text = 'hi';
+      //               final String encodedMessage = Uri.encodeComponent(
+      //                   text);
+      //               final Uri uri = Uri.parse('https://wa.me/$contact?text=$encodedMessage');
+      //               if (!await launchUrl(
+      //                 uri,
+      //                 mode: LaunchMode.externalApplication,
+      //               )) {
+      //                 throw Exception('Could not launch $uri');
+      //               }
+      //             },
+      //             child: Icon(Icons.message_outlined),
+      //           ),
+      //         ],
+      //       ),
+      //       Row(
+      //         children: [
+      //           Text(
+      //             'Message(Facebook)',
+      //             style: TextStyle(fontWeight: FontWeight.bold),
+      //           ),
+      //           SizedBox(width: 20),
+      //           FloatingActionButton.small(
+      //             heroTag: null,
+      //             onPressed: () async {
+      //               final Uri url = Uri.parse(
+      //                   '');
+      //               if (!await launchUrl(url)) {
+      //                 throw Exception('Could not launch $url');
+      //               }
+      //             },
+      //             child: Icon(Icons.send_outlined),
+      //           ),
+      //         ],
+      //       ),
+      //     ],
+      //   ),
+      // ),
       body: SingleChildScrollView(
         padding: paddingH20,
         child: Column(
@@ -221,7 +221,8 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             sizeH10,
-
+            SliderWidget(),
+            sizeH20,
             Obx(() {
               if(commonController.data.value.data?.status==1){
                 return  primaryButton(buttonName: "You Have an Ongoing Trip", onTap: (){
@@ -240,121 +241,122 @@ class _HomePageState extends State<HomePage> {
 
 
             sizeH10,
+
             DividerWidget(title: "Choose Your Vehicle"),
             SizedBox(height: 10.h),
             /// desire section
             Column(
               children: [
                 // First row: 3 cards
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildCard(context, 0, gridImageList, gridTitleList,null),
+                    _buildCard(context, 0, gridImageList, gridTitleList,Get.width/2.5,),
                     SizedBox(width: 5), // Horizontal spacing
-                    _buildCard(context, 1, gridImageList, gridTitleList,null),
-                    SizedBox(width: 5), // Horizontal spacing
-                    _buildCard(context, 2, gridImageList, gridTitleList,null),
+                    _buildCard(context, 1, gridImageList, gridTitleList,Get.width/2.5),
+                    // SizedBox(width: 5), // Horizontal spacing
+                    // _buildCard(context, 2, gridImageList, gridTitleList,null),
                   ],
                 ),
-                SizedBox(height: 5), // Vertical spacing between rows
-                // Second row: 2 cards, no extra space
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _buildCard(context, 3, gridImageList, gridTitleList,Get.width/2.495),
-                    SizedBox(width: 5), // Horizontal spacing
-                    _buildCard(context, 4, gridImageList, gridTitleList,Get.width/2.495),
-                  ],
-                ),
+                // SizedBox(height: 5), // Vertical spacing between rows
+                // // Second row: 2 cards, no extra space
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     _buildCard(context, 3, gridImageList, gridTitleList,Get.width/2.495),
+                //     SizedBox(width: 5), // Horizontal spacing
+                //     _buildCard(context, 4, gridImageList, gridTitleList,Get.width/2.495),
+                //   ],
+                // ),
               ],
             ),
-            sizeH20,
-            SliderWidget(),
-            15.verticalSpace,
-            DividerWidget(title: "Others Services & Offers"),
-            SizedBox(height: 10.h),
-            GridView.builder(
-                padding: EdgeInsets.symmetric(vertical: 0),
-                itemCount: gridTitleList2.length,
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
-                  childAspectRatio: 1.4,
-                  crossAxisCount: 2,
-                ),
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      switch (index) {
-                        case 0:
-                          Get.to(() => TouristBus());
-                          break;
-                        case 1:
-                          Get.to(() => SuvCars());
 
-                          break;
-                        case 2:
-                          Get.to(() => SpacialOffer());
-                          break;
-                        case 3:
-                          Get.to(() => TodayOffer());
-                          break;
-                        case 4:
-                        case 5:
-                        case 6:
-                        case 7:
-                          final customPrograms = {
-                            4: homeController.weddingProgram,
-                            5: homeController.ambulance,
-                            6: homeController.officePick,
-                            7: homeController.carMonthlyRant,
-                          };
-                          Get.to(() => PackageScreen(
-                                name: gridTitleList2[index],
-                                customeProgram: customPrograms[index] ?? [],
-                              ));
-                          break;
-                        case 8:
-                          Get.to(() => DriverSupply());
-                          break;
-                        case 9:
-                          Get.to(() => DriverTraining());
-                          break;
-                      }
-                    },
-                    child: Container(
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Container(
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Image.asset(
-                                gridImageList2[index],
-                                width: 200,
-                                height: 81,
-                                fit: BoxFit.cover,
-                              )),
-                          Spacer(),
-                          KText(
-                            text: gridTitleList2[index],
-                            textAlign: TextAlign.center,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w800,
-                          ),
-                          Spacer(),
-                        ],
-                      ),
-                    ),
-                  );
-                }),
+            15.verticalSpace,
+            // DividerWidget(title: "Others Services & Offers"),
+            // SizedBox(height: 10.h),
+            // GridView.builder(
+            //     padding: EdgeInsets.symmetric(vertical: 0),
+            //     itemCount: gridTitleList2.length,
+            //     physics: NeverScrollableScrollPhysics(),
+            //     shrinkWrap: true,
+            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            //       crossAxisSpacing: 8,
+            //       mainAxisSpacing: 8,
+            //       childAspectRatio: 1.4,
+            //       crossAxisCount: 2,
+            //     ),
+            //     itemBuilder: (context, index) {
+            //       return GestureDetector(
+            //         onTap: () {
+            //           switch (index) {
+            //             case 0:
+            //               Get.to(() => TouristBus());
+            //               break;
+            //             case 1:
+            //               Get.to(() => SuvCars());
+            //
+            //               break;
+            //             case 2:
+            //               Get.to(() => SpacialOffer());
+            //               break;
+            //             case 3:
+            //               Get.to(() => TodayOffer());
+            //               break;
+            //             case 4:
+            //             case 5:
+            //             case 6:
+            //             case 7:
+            //               final customPrograms = {
+            //                 4: homeController.weddingProgram,
+            //                 5: homeController.ambulance,
+            //                 6: homeController.officePick,
+            //                 7: homeController.carMonthlyRant,
+            //               };
+            //               Get.to(() => PackageScreen(
+            //                     name: gridTitleList2[index],
+            //                     customeProgram: customPrograms[index] ?? [],
+            //                   ));
+            //               break;
+            //             case 8:
+            //               Get.to(() => DriverSupply());
+            //               break;
+            //             case 9:
+            //               Get.to(() => DriverTraining());
+            //               break;
+            //           }
+            //         },
+            //         child: Container(
+            //           clipBehavior: Clip.antiAlias,
+            //           decoration: BoxDecoration(
+            //               color: Colors.grey.withOpacity(0.2),
+            //               borderRadius: BorderRadius.circular(10)),
+            //           child: Column(
+            //             children: [
+            //               Container(
+            //                   clipBehavior: Clip.antiAlias,
+            //                   decoration: BoxDecoration(
+            //                       color: Colors.white,
+            //                       borderRadius: BorderRadius.circular(10)),
+            //                   child: Image.asset(
+            //                     gridImageList2[index],
+            //                     width: 200,
+            //                     height: 81,
+            //                     fit: BoxFit.cover,
+            //                   )),
+            //               Spacer(),
+            //               KText(
+            //                 text: gridTitleList2[index],
+            //                 textAlign: TextAlign.center,
+            //                 fontSize: 13,
+            //                 fontWeight: FontWeight.w800,
+            //               ),
+            //               Spacer(),
+            //             ],
+            //           ),
+            //         ),
+            //       );
+            //     }),
             20.verticalSpace,
             DividerWidget(title: "Partnership With"),
             10.verticalSpace,
@@ -362,7 +364,7 @@ class _HomePageState extends State<HomePage> {
               () => homeController.partnership.value.data !=null || homeController.partnership.value.data!.isNotEmpty? CarouselSlider.builder(
                 itemCount: homeController.partnership.value.data?.length,
                 options: CarouselOptions(
-                  height: 210,
+                  height: 150,
                   viewportFraction: 1,
                   pageSnapping: true,
                   initialPage: 0,
@@ -392,11 +394,12 @@ class _HomePageState extends State<HomePage> {
                         width: double.infinity,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10.0.r),
-                          child: Image.network(
+                          child: Image.asset(
+                            "assets/icons/flat-nurse.png",
                             filterQuality: FilterQuality.high,
-                            '${Urls.getImageURL(
-                                endPoint: "${homeController.partnership.value
-                                    .data?[index].image}")}',
+                            // '${Urls.getImageURL(
+                            //     endPoint: "${homeController.partnership.value
+                            //         .data?[index].image}")}',
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -428,6 +431,24 @@ class _HomePageState extends State<HomePage> {
             ));
             break;
           case 1:
+          // Get.to(() => ReturnTripListFilterPage());
+          // await returnTripFilter.returnTripFilterList(
+          //   pickUpLocation: '',
+          //   carId: '',
+          //   dropLocation: '',
+          // );
+
+            // Get.to(() => RentalListPage(
+            //   id: '1',
+            //   isAirport: true,
+            //   isAmbulance: false,
+            //   isBus: false,
+            //   isSuv: false,
+            //   isTruck: false,
+            // ));
+            break;
+
+          case 2:
             Get.to(() => RentalListPage(
               id: '1',
               isAirport: true,
@@ -436,15 +457,12 @@ class _HomePageState extends State<HomePage> {
               isSuv: false,
               isTruck: false,
             ));
-            break;
-
-          case 2:
-            Get.to(() => ReturnTripListFilterPage());
-            await returnTripFilter.returnTripFilterList(
-              pickUpLocation: '',
-              carId: '',
-              dropLocation: '',
-            );
+            // Get.to(() => ReturnTripListFilterPage());
+            // await returnTripFilter.returnTripFilterList(
+            //   pickUpLocation: '',
+            //   carId: '',
+            //   dropLocation: '',
+            // );
             break;
 
           case 3:

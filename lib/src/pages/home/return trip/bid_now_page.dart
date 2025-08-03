@@ -103,7 +103,7 @@ class ReturnTripBidNowPageState extends State<ReturnTripBidNowPage> {
       Get.back();
     },
     child: Icon(Icons.arrow_back)),
-    title: KText(text: 'bid',color: white,fontWeight: FontWeight.bold,fontSize: 17,),),
+    title: KText(text: "Day Care",color: white,fontWeight: FontWeight.bold,fontSize: 17,),),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -184,7 +184,7 @@ class ReturnTripBidNowPageState extends State<ReturnTripBidNowPage> {
               Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                      'Pick-up Location',
+                      'Location',
                       style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
                     ),
                   Row(
@@ -203,39 +203,39 @@ class ReturnTripBidNowPageState extends State<ReturnTripBidNowPage> {
                     ],
                   ),
                   sizeH5,
-                  sizeH10,
-                  Text(
-                    'Drop-off Location',
-                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
-                  ),
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/map.png",
-                        scale: 15,
-                      ),
-                      SizedBox(
-                        width: Get.width/1.2,
-                        child: KText(
-                          text:
-                              truncateTextIfNeeded(widget.dropDivision, maxWords),
-                        ),
-                      )
-                    ],
-                  ),
+                  // sizeH10,
+                  // Text(
+                  //   'Drop-off Location',
+                  //   style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
+                  // ),
+                  // Row(
+                  //   children: [
+                  //     Image.asset(
+                  //       "assets/images/map.png",
+                  //       scale: 15,
+                  //     ),
+                  //     SizedBox(
+                  //       width: Get.width/1.2,
+                  //       child: KText(
+                  //         text:
+                  //             truncateTextIfNeeded(widget.dropDivision, maxWords),
+                  //       ),
+                  //     )
+                  //   ],
+                  // ),
                 ],
               ),
               sizeH5,
               sizeH5,
-              CustomTextFieldWithIcon(
-                label: "Your Fare:",
-                icon: Icons.business,
-                controller: customerFareController,
-                hinttext: "Enter Your Fare",
-                onChanged: (value) {
-                  updateTotalFare();
-                },
-              ),
+              // CustomTextFieldWithIcon(
+              //   label: "Your Fare:",
+              //   icon: Icons.business,
+              //   controller: customerFareController,
+              //   hinttext: "Enter Your Fare",
+              //   onChanged: (value) {
+              //     updateTotalFare();
+              //   },
+              // ),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -252,9 +252,9 @@ class ReturnTripBidNowPageState extends State<ReturnTripBidNowPage> {
               ),
               SizedBox(height: 10),
               CarContainerWidget(
-                img: Urls.getImageURL(endPoint: widget.carImg),
-                carName: widget.carName,
-                capacity: "${widget.capacity} Seats Capacity",
+                img:  "assets/icons/critical care.png",
+                carName: "Day Care",
+                capacity: "${widget.capacity} Days",
               ),
               SizedBox(height: 20),
               Row(
@@ -271,58 +271,58 @@ class ReturnTripBidNowPageState extends State<ReturnTripBidNowPage> {
                 ],
               ),
               SizedBox(height: 20),
-              Container(
-                color: Colors.white,
-                child: primaryButton(
-                  icon: Icons.arrow_circle_right_outlined,
-                  buttonName: 'Bid Now',
-                  onTap: () async {
-                    log("${_locationController.pickUpLocation.toString()}");
-                    log("${_locationController.dropLocation.toString()}");
-                    String pickupLatAndLang =
-                        '${_locationController.selectedPickUpLat} ${_locationController.selectedPickUpLng}';
-                    String dropOffLocation =
-                        '${_locationController.selectedDropUpLat} ${_locationController.selectedDropUpLng}';
-
-                    if (divisionController.text.isEmpty &&
-                        locationController.text.isEmpty &&
-                        customerFareController.text.isEmpty) {
-                      Get.snackbar(
-                        'Sorry',
-                        'Your Fare Required',
-                        colorText: Colors.white,
-                        backgroundColor: Colors.redAccent,
-                      );
-                    } else {
-                      await _controller.returnTripConfirm(
-                        pickUpLocation:
-                            _locationController.pickUpLocation.toString(),
-                        price: customerFareController.text,
-                        dropLocation:
-                            _locationController.dropLocation.toString(),
-                        partnerBidId: widget.partnerBidId,
-                        map: pickupLatAndLang,
-                        dropOffMap: dropOffLocation,
-                        partnerId: widget.partnerId,
-                      );
-                      if (_controller.customerBid.value.status == "success") {
-                        Get.to(() => ReturnBidConfirm(
-                              carImg: widget.carImg,
-                              capacity: widget.capacity,
-                              carName: widget.carName,
-                              pickup:widget.pickDivision,
-                              drop: widget.dropDivision,
-                              partnerFare: widget.partnerFare,
-                              tripTime: widget.tripTime,
-                              bidId: _controller.customerBid.value.data!.id
-                                  .toString(),
-                            ));
-                      }
-                    }
-                  },
-                ),
-              ),
-              SizedBox(height: 20),
+              // Container(
+              //   color: Colors.white,
+              //   child: primaryButton(
+              //     icon: Icons.arrow_circle_right_outlined,
+              //     buttonName: 'Bid Now',
+              //     onTap: () async {
+              //       log("${_locationController.pickUpLocation.toString()}");
+              //       log("${_locationController.dropLocation.toString()}");
+              //       String pickupLatAndLang =
+              //           '${_locationController.selectedPickUpLat} ${_locationController.selectedPickUpLng}';
+              //       String dropOffLocation =
+              //           '${_locationController.selectedDropUpLat} ${_locationController.selectedDropUpLng}';
+              //
+              //       if (divisionController.text.isEmpty &&
+              //           locationController.text.isEmpty &&
+              //           customerFareController.text.isEmpty) {
+              //         Get.snackbar(
+              //           'Sorry',
+              //           'Your Fare Required',
+              //           colorText: Colors.white,
+              //           backgroundColor: Colors.redAccent,
+              //         );
+              //       } else {
+              //         await _controller.returnTripConfirm(
+              //           pickUpLocation:
+              //               _locationController.pickUpLocation.toString(),
+              //           price: customerFareController.text,
+              //           dropLocation:
+              //               _locationController.dropLocation.toString(),
+              //           partnerBidId: widget.partnerBidId,
+              //           map: pickupLatAndLang,
+              //           dropOffMap: dropOffLocation,
+              //           partnerId: widget.partnerId,
+              //         );
+              //         if (_controller.customerBid.value.status == "success") {
+              //           Get.to(() => ReturnBidConfirm(
+              //                 carImg: widget.carImg,
+              //                 capacity: widget.capacity,
+              //                 carName: widget.carName,
+              //                 pickup:widget.pickDivision,
+              //                 drop: widget.dropDivision,
+              //                 partnerFare: widget.partnerFare,
+              //                 tripTime: widget.tripTime,
+              //                 bidId: _controller.customerBid.value.data!.id
+              //                     .toString(),
+              //               ));
+              //         }
+              //       }
+              //     },
+              //   ),
+              // ),
+              // SizedBox(height: 20),
             ],
           ),
         ),

@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
             padding: EdgeInsets.symmetric(horizontal: 15),
             children: [
               Image.asset(
-                'assets/animations/Banner.png',
+                'assets/icons/flat-nurse.png',
                 width: 500,
               ),
               KText(

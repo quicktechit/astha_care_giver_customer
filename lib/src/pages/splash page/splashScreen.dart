@@ -18,7 +18,7 @@ class _SplashScreenState1 extends State<SplashScreen1> {
   final CommonController controller=Get.put(CommonController());
 
   Future<void> _loadData() async {
-    Timer(Duration(seconds: 2), () {
+    Timer(Duration(seconds: 3), () {
       Get.offAll(() => SplashScreen(),
           transition: Transition.fadeIn, duration: Duration(seconds: 1));
     });
@@ -46,7 +46,7 @@ class _SplashScreenState1 extends State<SplashScreen1> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  "Easily Book Your Rental Car Online",
+                  "Easily Book Your Care giving Service Online",
                   style: GoogleFonts.robotoSlab(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,color: Colors.white

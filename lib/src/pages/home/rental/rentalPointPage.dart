@@ -16,11 +16,10 @@ import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/car%20selected%20option/car_selected_option_widget.dart';
 import 'package:jatri_app/src/widgets/date%20and%20time%20widget/date_time_widget.dart';
 import 'package:jatri_app/src/widgets/date%20and%20time%20widget/return_date_and_time_widget.dart';
-import 'package:jatri_app/src/widgets/drop_point_widget.dart';
 import 'package:jatri_app/src/widgets/note_controller.dart';
 import 'package:jatri_app/src/widgets/pick_up_location_widget.dart';
+import 'package:jatri_app/src/widgets/text/custom_text_filed_widget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
-import 'package:jatri_app/src/widgets/via_location_widget.dart';
 
 class RentalPointPage extends StatefulWidget {
   final String carImg;
@@ -42,18 +41,29 @@ class RentalPointPage extends StatefulWidget {
 
 class _RentalPointPageState extends State<RentalPointPage> {
   final noteController = TextEditingController();
+  final nameController = TextEditingController();
+  final ageController = TextEditingController();
 
-  var isRoundTrip = false;
+  var daily = false;
+  var weekly = false;
+  var monthly = false;
   bool isHourly = false;
   int roundTripValue = 0;
   int hourlyTripValue = 0;
   bool showViaLocation = false;
+  final List<String> _genders = ['Male', 'Female', 'Other'];
+  String? _selectedGender = 'Male';
 
   /// for time and date
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
   DateTime selectedReturnDate = DateTime.now();
   TimeOfDay selectedReturnTime = TimeOfDay.now();
+  DateTime selectedWeeklyDate = DateTime.now();
+  TimeOfDay selectedWeeklyTime = TimeOfDay.now();
+  DateTime selectedMonthlyDate = DateTime.now();
+  TimeOfDay selectedMonthlyTime = TimeOfDay.now();
+
   final LocationController locationController = Get.put(LocationController());
   final RentalFormCheckController _controller =
       Get.put(RentalFormCheckController());
@@ -81,7 +91,7 @@ class _RentalPointPageState extends State<RentalPointPage> {
       appBar: AppBar(
         backgroundColor: maincolor,
         title: Text(
-          "requestRentalTrip".tr,
+          "Service Request".tr,
           style: TextStyle(color: Colors.white, fontSize: 17.h),
         ),
         leading: GestureDetector(
@@ -96,7 +106,71 @@ class _RentalPointPageState extends State<RentalPointPage> {
           CarSelectedOption(
             carImg: widget.carImg,
             carName: widget.carName,
-            capacity:widget.category_id=="8"?"${widget.capacity} Ton Capacity": "${widget.capacity} Seats Capacity",
+          ),
+          sizeH5,
+          Container(
+            color: Colors.white,
+            padding: paddingH10V20,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                KText(
+                  text: "User Info",
+                  textAlign: TextAlign.start,
+                  fontWeight: FontWeight.bold,
+                ),
+                sizeH5,
+                CustomTextFieldWithIcon(
+                    icon: CupertinoIcons.person,
+                    controller: nameController,
+                    hinttext: "Name"),
+                sizeH10,
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.transgender),
+                      sizeW10,
+                      DropdownButton<String>(
+                        value: _selectedGender,
+                        icon: SizedBox.shrink(),
+                        hint: const Text('Choose Gender'),
+                        underline: SizedBox.shrink(),
+                        items: _genders.map((String gender) {
+                          return DropdownMenuItem<String>(
+                            value: gender,
+                            child: Text(gender),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedGender = newValue;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                sizeH10,
+                CustomTextFieldWithIcon(
+                    icon: CupertinoIcons.calendar,
+                    controller: ageController,
+                    keyboardType: TextInputType.datetime,
+                    hinttext: "Age")
+              ],
+            ),
           ),
           sizeH5,
 
@@ -106,87 +180,42 @@ class _RentalPointPageState extends State<RentalPointPage> {
             color: white,
             child: Padding(
               padding: paddingH10V20,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Image.asset(
-                        "assets/images/pick.png",
-                        scale: 12,
-                      ),
-                      sizeH5,
-                      Container(
-                        height: 80,
-                        width: .9,
-                        color: black,
-                      ),
-                      sizeH5,
-                      Image.asset(
-                        "assets/images/map.png",
-                        scale: 12,
-                      ),
-                    ],
-                  ),
-                  sizeW20,
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        KText(
-                          text: 'pickUpPoint',
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        sizeH5,
-
-                        /// pick up point
-                        PickUp(),
-                        sizeH5,
-
-                        /// via location
-                        Visibility(
-                          visible: showViaLocation,
-                          child: ViaLocation(),
-                        ),
-
-                        /// drop point
-                        sizeH10,
-
-                        KText(
-                          text: 'dropOffPoint',
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        sizeH5,
-
-                        /// drop pont
-                        DropWidget()
-                      ],
+              child: Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    KText(
+                      text: 'Location',
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        showViaLocation = !showViaLocation;
-                      });
-                    },
-                    child: CircleAvatar(
-                      radius: 13,
-                      backgroundColor: grey.shade300,
-                      child: CircleAvatar(
-                        radius: 12,
-                        backgroundColor: white,
-                        child: Icon(
-                          showViaLocation ? Icons.close : Icons.add,
-                          color: black54,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                    sizeH5,
+
+                    /// pick up point
+                    PickUp(),
+                    sizeH5,
+
+                    /// via location
+                    // Visibility(
+                    //   visible: showViaLocation,
+                    //   child: ViaLocation(),
+                    // ),
+
+                    /// drop point
+                    // sizeH10,
+                    //
+                    // KText(
+                    //   text: 'dropOffPoint',
+                    //   fontSize: 16,
+                    //   fontWeight: FontWeight.bold,
+                    // ),
+                    // sizeH5,
+
+                    /// drop pont
+                    // DropWidget()
+                  ],
+                ),
               ),
             ),
           ),
@@ -238,7 +267,9 @@ class _RentalPointPageState extends State<RentalPointPage> {
                       setState(() {
                         isHourly = val;
                         hourlyTripValue = isHourly ? 1 : 0;
-                        isRoundTrip = false;
+                        daily = false;
+                        weekly=false;
+                        monthly=false;
                         // print("selected round trip $roundTripValue");
                       });
                     },
@@ -327,19 +358,19 @@ class _RentalPointPageState extends State<RentalPointPage> {
 
                   /// round trip
                   KText(
-                    text: 'Round Trip',
+                    text: 'Daily',
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                   Spacer(),
                   CupertinoSwitch(
-                    value: isRoundTrip,
+                    value: daily,
                     activeColor: primaryColor,
                     thumbColor: white,
                     onChanged: (val) {
                       setState(() {
-                        isRoundTrip = val;
-                        roundTripValue = isRoundTrip ? 1 : 0;
+                        daily = val;
+                        roundTripValue = daily ? 1 : 0;
                         isHourly = false;
                         print("selected round trip $roundTripValue");
                       });
@@ -349,8 +380,8 @@ class _RentalPointPageState extends State<RentalPointPage> {
               ),
             ),
           ),
-          isRoundTrip != true ? Container() : sizeH5,
-          isRoundTrip != true
+          daily != true ? Container() : sizeH5,
+          daily != true
               ? Container()
               : ReturnDateAndTime(
                   onReturnDateTimeSelected: (date, time) {
@@ -358,6 +389,123 @@ class _RentalPointPageState extends State<RentalPointPage> {
                     selectedReturnTime = time;
                   },
                 ),
+          sizeH5,
+          Container(
+            width: Get.width,
+            color: white,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 15,
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: black,
+                    child: CircleAvatar(
+                      radius: 11,
+                      backgroundColor: white,
+                      child: Icon(
+                        Ionicons.repeat_outline,
+                        size: 17,
+                        color: black,
+                      ),
+                    ),
+                  ),
+                  sizeW10,
+
+                  /// round trip
+                  KText(
+                    text: 'Weekly',
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  Spacer(),
+                  CupertinoSwitch(
+                    value: weekly,
+                    activeColor: primaryColor,
+                    thumbColor: white,
+                    onChanged: (val) {
+                      setState(() {
+                        weekly = val;
+                        daily = false;
+                        isHourly = false;
+                        monthly = false;
+                      });
+                    },
+                  )
+                ],
+              ),
+            ),
+          ),
+          sizeH5,
+          if (weekly)
+            ReturnDateAndTime(
+              onReturnDateTimeSelected: (date, time) {
+                selectedWeeklyDate = date;
+                selectedWeeklyTime = time;
+              },
+            ),
+          sizeH5,
+          Container(
+            width: Get.width,
+            color: white,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 15,
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: black,
+                    child: CircleAvatar(
+                      radius: 11,
+                      backgroundColor: white,
+                      child: Icon(
+                        Ionicons.repeat_outline,
+                        size: 17,
+                        color: black,
+                      ),
+                    ),
+                  ),
+                  sizeW10,
+
+                  /// round trip
+                  KText(
+                    text: 'Monthly',
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  Spacer(),
+                  CupertinoSwitch(
+                    value: monthly,
+                    activeColor: primaryColor,
+                    thumbColor: white,
+                    onChanged: (val) {
+                      setState(() {
+                        monthly = val;
+
+                        isHourly = false;
+                        daily = false;
+                        weekly = false;
+                      });
+                    },
+                  )
+                ],
+              ),
+            ),
+          ),
+          sizeH5,
+          if (monthly)
+            ReturnDateAndTime(
+              onReturnDateTimeSelected: (date, time) {
+                selectedMonthlyDate = date;
+                selectedMonthlyTime = time;
+              },
+            ),
           sizeH5,
           NoteTextFiled(
             controller: noteController,
@@ -371,7 +519,7 @@ class _RentalPointPageState extends State<RentalPointPage> {
                     child: Padding(
                       padding: paddingH20V20,
                       child: primaryButton(
-                        buttonName: 'Trip Form',
+                        buttonName: 'Submit',
                         onTap: () {
                           String hour = selectedTime.hourOfPeriod == 0
                               ? '12'
@@ -397,6 +545,12 @@ class _RentalPointPageState extends State<RentalPointPage> {
                           String returnJourneyTimeAndDate =
                               '${selectedReturnDate.year}-${selectedReturnDate.month.toString().padLeft(2, '0')}-${selectedReturnDate.day.toString().padLeft(2, '0')} ${returnHour}:${returnMinute} $returnPeriod'
                                   .toString();
+                          String returnWeeklyTimeAndDate =
+                              '${selectedWeeklyDate.year}-${selectedWeeklyDate.month.toString().padLeft(2, '0')}-${selectedWeeklyDate.day.toString().padLeft(2, '0')} ${selectedWeeklyTime}'
+                                  .toString();
+                          String returnMonthlyTimeAndDate =
+                              '${selectedMonthlyDate.year}-${selectedMonthlyDate.month.toString().padLeft(2, '0')}-${selectedMonthlyDate.day.toString().padLeft(2, '0')} ${selectedMonthlyTime}'
+                                  .toString();
 
                           /// pick up lat and lang
                           String pickLatAndLang =
@@ -407,30 +561,28 @@ class _RentalPointPageState extends State<RentalPointPage> {
                           String dropOfLatAndLang =
                               '${locationController.selectedDropUpLat} ${locationController.selectedDropUpLng}';
 
-                          if (locationController.pickUpLocation.isEmpty ||
-                              locationController.dropLocation.isEmpty) {
-                            Get.snackbar(
-                                'Sorry', "Pick & Drop Point Cannot be Empty",
+                          if (locationController.pickUpLocation.isEmpty) {
+                            Get.snackbar('Sorry', "Location Cannot be Empty",
                                 colorText: white,
                                 backgroundColor: Colors.redAccent);
                             return;
                           } else
-                            RentalFormCheckController().rentalForm(
-                              pickUpLocation:
-                                  locationController.pickUpLocation.toString(),
-                              viaLocation:
-                                  locationController.viaLocation.toString(),
-                              dropLocation:
-                                  locationController.dropLocation.toString(),
-                              dateTime: journeyTimeAndDate,
-                              map: pickLatAndLang,
-                              roundTrip: roundTripValue.toString(),
-                              roundTripTimeDate: returnJourneyTimeAndDate,
-                              vehicleId: widget.carId,
-                              dropMap: dropOfLatAndLang, note: noteController.text,
-                            );
-                          Get.to(() => TripDetailsPage(
-                                carImg: widget.carImg,
+                            // RentalFormCheckController().rentalForm(
+                            //   pickUpLocation:
+                            //       locationController.pickUpLocation.toString(),
+                            //   viaLocation:
+                            //       locationController.viaLocation.toString(),
+                            //   dropLocation:
+                            //       locationController.dropLocation.toString(),
+                            //   dateTime: journeyTimeAndDate,
+                            //   map: pickLatAndLang,
+                            //   roundTrip: roundTripValue.toString(),
+                            //   roundTripTimeDate: returnJourneyTimeAndDate,
+                            //   vehicleId: widget.carId,
+                            //   dropMap: dropOfLatAndLang, note: noteController.text,
+                            // );
+                            Get.to(() => TripDetailsPage(
+                                  carImg: widget.carImg,
                                 carName: widget.carName,
                                 capacity: widget.capacity,
                                 carId: widget.carId,
@@ -446,8 +598,14 @@ class _RentalPointPageState extends State<RentalPointPage> {
                                 roundTripDetailsJourney:
                                     returnJourneyTimeAndDate,
                                 dropOffMap: dropOfLatAndLang.toString(),
-                                category_id: widget.category_id, note:  noteController.text,
-                              ));
+                                  category_id: widget.category_id,
+                                  note: noteController.text,
+                                  age: ageController.text.toString(),
+                                  name: nameController.text.toString(),
+                                  gender: _selectedGender.toString(),
+                                  weeklyTime: returnWeeklyTimeAndDate,
+                                  monthlyTime: returnMonthlyTimeAndDate, monthly: monthly, weekly: weekly, hourly: isHourly,
+                                ));
                         },
                       ),
                     ),

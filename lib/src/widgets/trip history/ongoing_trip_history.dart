@@ -159,7 +159,7 @@ class OngoingTripHistory extends StatelessWidget {
                                           ),
                                           SizedBox(width: 10.h),
                                           StatusWidget(
-                                            icon: Icons.car_crash_rounded,
+                                            icon: Icons.medical_information_outlined,
                                             statusTitle: "ON GOING",
                                             textColor: Colors.green,
                                           ),
@@ -215,47 +215,47 @@ class OngoingTripHistory extends StatelessWidget {
                                                         ),
                                                       ],
                                                     ),
-                                                    sizeH5,
-                                                    Padding(
-                                                      padding:
-                                                      EdgeInsets.fromLTRB(
-                                                          12.h, 0, 10.h, 0),
-                                                      child: Container(
-                                                        height: 15,
-                                                        width: 1,
-                                                        color: grey,
-                                                      ),
-                                                    ),
-                                                    sizeH5,
-                                                    Row(
-                                                      children: [
-                                                        Image.asset(
-                                                          "assets/images/map.png",
-                                                          scale: 20.h,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 3.h,
-                                                        ),
-                                                        Expanded(
-                                                          child: Text(
-                                                            rentalData?.trip?.dropoffLocation ??
-                                                                returnData?.returnTrip?.destination ??
-                                                                divisionData?.divisionTrip?.dropoffLocation ??
-                                                                "N/A",
-                                                            maxLines: 1,
-                                                            overflow:
-                                                            TextOverflow
-                                                                .ellipsis,
-                                                            style: TextStyle(
-                                                              fontSize: 12.h,
-                                                              fontWeight:
-                                                              FontWeight
-                                                                  .w600,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
+                                                    // sizeH5,
+                                                    // Padding(
+                                                    //   padding:
+                                                    //   EdgeInsets.fromLTRB(
+                                                    //       12.h, 0, 10.h, 0),
+                                                    //   child: Container(
+                                                    //     height: 15,
+                                                    //     width: 1,
+                                                    //     color: grey,
+                                                    //   ),
+                                                    // ),
+                                                    // sizeH5,
+                                                    // Row(
+                                                    //   children: [
+                                                    //     Image.asset(
+                                                    //       "assets/images/map.png",
+                                                    //       scale: 20.h,
+                                                    //     ),
+                                                    //     SizedBox(
+                                                    //       width: 3.h,
+                                                    //     ),
+                                                    //     Expanded(
+                                                    //       child: Text(
+                                                    //         rentalData?.trip?.dropoffLocation ??
+                                                    //             returnData?.returnTrip?.destination ??
+                                                    //             divisionData?.divisionTrip?.dropoffLocation ??
+                                                    //             "N/A",
+                                                    //         maxLines: 1,
+                                                    //         overflow:
+                                                    //         TextOverflow
+                                                    //             .ellipsis,
+                                                    //         style: TextStyle(
+                                                    //           fontSize: 12.h,
+                                                    //           fontWeight:
+                                                    //           FontWeight
+                                                    //               .w600,
+                                                    //         ),
+                                                    //       ),
+                                                    //     ),
+                                                    //   ],
+                                                    // ),
                                                   ],
                                                 ),
                                               ),

@@ -257,33 +257,33 @@ final DistanceTimeController distanceTimeController =Get.put(DistanceTimeControl
                                                 ],
                                               ),
                                             ),
-                                            Column(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                  EdgeInsets.all(4.0.h),
-                                                  child: CircleAvatar(
-                                                    backgroundColor:
-                                                    Colors.black,
-                                                    radius: 30,
-                                                    backgroundImage:
-                                                    NetworkImage(
-                                                      '${Urls.domain}/${rentalData?.vehicle?.image ??
-                                                          returnData?.returnVehicle?.image ??
-                                                          divisionData?.divisionVehicle?.image ??
-                                                          ''}',
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  rentalData?.vehicle?.name ??
-                                                      returnData?.returnVehicle?.name ??
-                                                      divisionData?.divisionVehicle?.name ??
-                                                      "N/A",
-                                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                                ),
-                                              ],
-                                            ),
+                                            // Column(
+                                            //   children: [
+                                            //     Padding(
+                                            //       padding:
+                                            //       EdgeInsets.all(4.0.h),
+                                            //       child: CircleAvatar(
+                                            //         backgroundColor:
+                                            //         Colors.black,
+                                            //         radius: 30,
+                                            //         backgroundImage:
+                                            //         NetworkImage(
+                                            //           '${Urls.domain}/${rentalData?.vehicle?.image ??
+                                            //               returnData?.returnVehicle?.image ??
+                                            //               divisionData?.divisionVehicle?.image ??
+                                            //               ''}',
+                                            //         ),
+                                            //       ),
+                                            //     ),
+                                            //     Text(
+                                            //       rentalData?.vehicle?.name ??
+                                            //           returnData?.returnVehicle?.name ??
+                                            //           divisionData?.divisionVehicle?.name ??
+                                            //           "N/A",
+                                            //       style: TextStyle(fontWeight: FontWeight.bold),
+                                            //     ),
+                                            //   ],
+                                            // ),
                                           ],
                                         ),
                                       ),

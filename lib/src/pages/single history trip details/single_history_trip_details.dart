@@ -92,8 +92,8 @@ class SingleHistoryTripDetailsPageState
                             .value.data?.tripHistory?.vehicle?.name
                             .toString() ??
                         '',
-                    capacity:
-                        "${_singleTripDetailsController.singleTripDetailsModel.value.data?.tripHistory?.vehicle?.capacity.toString()} Seats Capacity",
+                    // capacity:
+                    //     "${_singleTripDetailsController.singleTripDetailsModel.value.data?.tripHistory?.vehicle?.capacity.toString()} Seats Capacity",
                   ),
                   SizedBox(height: 20.h),
                   _singleTripDetailsController

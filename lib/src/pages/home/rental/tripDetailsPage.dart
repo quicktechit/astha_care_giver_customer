@@ -22,8 +22,16 @@ class TripDetailsPage extends StatefulWidget {
   final String viaPoint;
   final String note;
   final String roundTrip;
+  final bool monthly;
+  final bool weekly;
+  final bool hourly;
+  final String age;
+  final String name;
+  final String gender;
   final String tripDetailsJourney;
   final String map;
+  final String weeklyTime;
+  final String monthlyTime;
   final String dropOffMap;
   final String roundTripDetailsJourney;
 
@@ -32,16 +40,24 @@ class TripDetailsPage extends StatefulWidget {
       required this.carName,
       required this.capacity,
       required this.carId,
+      required this.weeklyTime,
+      required this.hourly,
+      required this.monthlyTime,
       required this.pickUpPoint,
       required this.dropPoint,
       required this.viaPoint,
       required this.tripDetailsJourney,
       required this.roundTrip,
       required this.map,
+      required this.monthly,
+      required this.weekly,
+      required this.age,
+      required this.name,
+      required this.gender,
       required this.roundTripDetailsJourney,
       required this.dropOffMap,
       required this.category_id,
-      required this.note});
+      required this.note, });
 
   @override
   State<TripDetailsPage> createState() => _TripDetailsPageState();
@@ -85,22 +101,22 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
         child: Padding(
           padding: paddingH20V20,
           child: primaryButton(
-            buttonName: 'requestTripRequest',
+            buttonName: 'Send Request',
             onTap: () async {
-              await _controller.rentalFormSubmit(
-                pickUpLocation: widget.pickUpPoint,
-                viaLocation: widget.viaPoint,
-                dropLocation: widget.dropPoint,
-                dateTime: widget.tripDetailsJourney,
-                map: widget.map,
-                roundTrip: widget.roundTrip,
-                promoCode: promoCode,
-                roundTripTimeDate: widget.roundTripDetailsJourney,
-                vehicleId: widget.carId,
-                dropMap: widget.dropOffMap,
-                category_id: widget.category_id,
-                note: widget.note,
-              );
+              // await _controller.rentalFormSubmit(
+              //   pickUpLocation: widget.pickUpPoint,
+              //   viaLocation: widget.viaPoint,
+              //   dropLocation: widget.dropPoint,
+              //   dateTime: widget.tripDetailsJourney,
+              //   map: widget.map,
+              //   roundTrip: widget.roundTrip,
+              //   promoCode: promoCode,
+              //   roundTripTimeDate: widget.roundTripDetailsJourney,
+              //   vehicleId: widget.carId,
+              //   dropMap: widget.dropOffMap,
+              //   category_id: widget.category_id,
+              //   note: widget.note,
+              // );
 
             },
           ),
@@ -108,9 +124,9 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
       ),
       backgroundColor: bgColor,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+
         title: Text(
-          "Rental Trip Details",
+          "Service Details",
           style: TextStyle(color: Colors.white, fontSize: 17.h),
         ),
       ),
@@ -119,13 +135,49 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
           CarSelectedOption(
               carImg: widget.carImg,
               carName: widget.carName,
-              capacity: "${widget.capacity} Seats Capacity"),
+              // capacity: "${widget.capacity} Day"
+          ),
+          sizeH5,
+          Container(
+            color: Colors.white,
+            padding: EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 15,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                KText(text: "User Information"),
+              sizeH10,
+              Row(children: [
+                Icon(Icons.person_outline),
+                sizeW5,
+                KText(text: widget.name.toString(),fontSize: 15,fontWeight: FontWeight.bold,)
+              ],),
+              sizeH10,
+              Row(children: [
+                Icon(Icons.transgender),
+                sizeW5,
+                KText(text: widget.gender),
+                sizeW40,
+                KText(text: 'Age',fontWeight: FontWeight.bold,),
+                sizeW5,
+                KText(text:widget.age)
+              ],),
+              sizeH10,
+              KText(text: "Note",fontWeight: FontWeight.bold,),
+              sizeH10,
+              KText(text: widget.note)
+            ],),
+            
+          ),
           sizeH5,
           DropAndPickupWidget(
             dropPoint: widget.dropPoint,
             viaPoint: widget.viaPoint,
             pickPoint: widget.pickUpPoint,
           ),
+          sizeH5,
           Container(
             width: Get.width,
             color: white,
@@ -134,21 +186,76 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
                 horizontal: 10,
                 vertical: 15,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  KText(
-                    text: 'ROUND TRIP',
-                    fontSize: 12,
-                    color: black45,
-                    fontWeight: FontWeight.w600,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      KText(
+                        text: 'Hourly',
+                        fontSize: 12,
+                        color: black45,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      sizeH5,
+                      KText(
+                        text: widget.hourly == false ? 'No' : 'Yes',
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ],
                   ),
-                  sizeH5,
-                  KText(
-                    text: widget.roundTrip == "0" ? 'No' : 'Yes',
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  )
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      KText(
+                        text: 'Daily',
+                        fontSize: 12,
+                        color: black45,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      sizeH5,
+                      KText(
+                        text: widget.roundTrip == "0" ? 'No' : 'Yes',
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      KText(
+                        text: 'Weekly',
+                        fontSize: 12,
+                        color: black45,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      sizeH5,
+                      KText(
+                        text: widget.weekly==false? 'No' : 'Yes',
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      KText(
+                        text: 'Monthly',
+                        fontSize: 12,
+                        color: black45,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      sizeH5,
+                      KText(
+                        text: widget.monthly == false ? 'No' : 'Yes',
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -166,7 +273,7 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   KText(
-                    text: 'TRIPDATETIME',
+                    text: 'Service Date',
                     fontSize: 12,
                     color: black45,
                     fontWeight: FontWeight.w600,
@@ -181,99 +288,99 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
               ),
             ),
           ),
-          sizeH5,
-          Container(
-            color: white,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 15,
-              ),
-              child: Row(
-                children: [
-                  KText(
-                    text: 'noPromoAdded',
-                    fontSize: 12,
-                    color: black54,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: Text('Add Promo Code'),
-                            content: Container(
-                              width: 300.w,
-                              height: 100,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  CustomTextFieldWithIcon(
-                                    label: 'Add Promo',
-                                    icon: Icons.password,
-                                    controller: addPromoController,
-                                    hinttext: "Promo Code ",
-                                  )
-                                ],
-                              ),
-                            ),
-                            actions: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text('Close'),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    promoCode = addPromoController.text;
-                                  });
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text('Apply'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue.shade50,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 5,
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.add,
-                              size: 20,
-                              color: Colors.blue,
-                            ),
-                            KText(
-                              text: 'addPromoCode',
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                              color: Colors.blue,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
+          // sizeH5,
+          // Container(
+          //   color: white,
+          //   child: Padding(
+          //     padding: EdgeInsets.symmetric(
+          //       horizontal: 10,
+          //       vertical: 15,
+          //     ),
+          //     child: Row(
+          //       children: [
+          //         KText(
+          //           text: 'noPromoAdded',
+          //           fontSize: 12,
+          //           color: black54,
+          //           fontWeight: FontWeight.w600,
+          //         ),
+          //         Spacer(),
+          //         GestureDetector(
+          //           onTap: () {
+          //             showDialog(
+          //               context: context,
+          //               builder: (BuildContext context) {
+          //                 return AlertDialog(
+          //                   title: Text('Add Promo Code'),
+          //                   content: Container(
+          //                     width: 300.w,
+          //                     height: 100,
+          //                     child: Column(
+          //                       mainAxisAlignment: MainAxisAlignment.center,
+          //                       crossAxisAlignment: CrossAxisAlignment.center,
+          //                       children: [
+          //                         CustomTextFieldWithIcon(
+          //                           label: 'Add Promo',
+          //                           icon: Icons.password,
+          //                           controller: addPromoController,
+          //                           hinttext: "Promo Code ",
+          //                         )
+          //                       ],
+          //                     ),
+          //                   ),
+          //                   actions: [
+          //                     ElevatedButton(
+          //                       onPressed: () {
+          //                         Navigator.of(context).pop();
+          //                       },
+          //                       child: Text('Close'),
+          //                     ),
+          //                     ElevatedButton(
+          //                       onPressed: () {
+          //                         setState(() {
+          //                           promoCode = addPromoController.text;
+          //                         });
+          //                         Navigator.of(context).pop();
+          //                       },
+          //                       child: Text('Apply'),
+          //                     ),
+          //                   ],
+          //                 );
+          //               },
+          //             );
+          //           },
+          //           child: Container(
+          //             decoration: BoxDecoration(
+          //               color: Colors.blue.shade50,
+          //               borderRadius: BorderRadius.circular(30),
+          //             ),
+          //             child: Padding(
+          //               padding: EdgeInsets.symmetric(
+          //                 horizontal: 10,
+          //                 vertical: 5,
+          //               ),
+          //               child: Row(
+          //                 children: [
+          //                   Icon(
+          //                     Icons.add,
+          //                     size: 20,
+          //                     color: Colors.blue,
+          //                   ),
+          //                   KText(
+          //                     text: 'addPromoCode',
+          //                     fontWeight: FontWeight.w600,
+          //                     fontSize: 14,
+          //                     color: Colors.blue,
+          //                   ),
+          //                 ],
+          //               ),
+          //             ),
+          //           ),
+          //         )
+          //       ],
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

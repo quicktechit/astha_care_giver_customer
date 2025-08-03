@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 
 class CustomTextFieldWithIcon extends StatelessWidget {
-  final String label;
+  final String? label;
   final IconData icon;
   final String hinttext;
   final TextEditingController controller;
@@ -17,7 +17,7 @@ class CustomTextFieldWithIcon extends StatelessWidget {
 
   const CustomTextFieldWithIcon({
     key,
-    required this.label,
+     this.label,
     required this.icon,
     required this.controller,
     required this.hinttext,
@@ -32,10 +32,11 @@ class CustomTextFieldWithIcon extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if(label!=null)
         Container(
           width: Get.width,
           child: Text(
-            label.tr,
+            label!.tr,
             textAlign: TextAlign.left,
             style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
           ),

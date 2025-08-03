@@ -49,7 +49,7 @@ dependencies:
   vibration: ^1.7.2
   lottie:
   icons_launcher: ^2.1.7
-  facebook_app_events: ^0.19.7
+  facebook_app_events: ^0.20.0
 #  flutter_launcher_icons: ^0.13.1
 #  archive: ^3.4.10
 icons_launcher:

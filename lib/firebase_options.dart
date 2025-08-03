@@ -41,48 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDJqMOZfWVrg5015K7KZ-LhZXeecPIFmYA',
-    appId: '1:816144966935:web:d985d17d59dca2992e8352',
-    messagingSenderId: '816144966935',
-    projectId: 'gari-lagbee',
-    authDomain: 'gari-lagbee.firebaseapp.com',
-    storageBucket: 'gari-lagbee.firebasestorage.app',
-    measurementId: 'G-YXXZVFMWQR',
+    apiKey: 'AIzaSyBU1bCTqKgW7M7NeeWxb58YeIeAFRlBgzY',
+    appId: '1:60676382250:web:f3bee64bf271ae50f3ed53',
+    messagingSenderId: '60676382250',
+    projectId: 'astha-care-giver',
+    authDomain: 'astha-care-giver.firebaseapp.com',
+    storageBucket: 'astha-care-giver.firebasestorage.app',
+    measurementId: 'G-RDB9JMNNY3',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBpMiwy7h4Zp6KHoQSONr6SqqR-4K1qQ5Y',
-    appId: '1:816144966935:android:de3c1297da1cba952e8352',
-    messagingSenderId: '816144966935',
-    projectId: 'gari-lagbee',
-    storageBucket: 'gari-lagbee.firebasestorage.app',
+    apiKey: 'AIzaSyDf3vtxNKOtreDmPwKbcNUIgu8FC4cpDVU',
+    appId: '1:60676382250:android:2964818541805810f3ed53',
+    messagingSenderId: '60676382250',
+    projectId: 'astha-care-giver',
+    storageBucket: 'astha-care-giver.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCNqnUNSXvoheCFiGTxJKecQmhS4JXO1Zc',
-    appId: '1:816144966935:ios:e1974abcfd6b02912e8352',
-    messagingSenderId: '816144966935',
-    projectId: 'gari-lagbee',
-    storageBucket: 'gari-lagbee.firebasestorage.app',
-    iosBundleId: 'com.quicktechit.garilagbee.app',
+    apiKey: 'AIzaSyAVCE9ne5-z4OUPeLWV4H3hc-OzvZC4z-Y',
+    appId: '1:60676382250:ios:9983d54cd7043a31f3ed53',
+    messagingSenderId: '60676382250',
+    projectId: 'astha-care-giver',
+    storageBucket: 'astha-care-giver.firebasestorage.app',
+    iosBundleId: 'com.quicktechit.asthacaregiver.app',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCNqnUNSXvoheCFiGTxJKecQmhS4JXO1Zc',
-    appId: '1:816144966935:ios:3fbcc55caebe37972e8352',
-    messagingSenderId: '816144966935',
-    projectId: 'gari-lagbee',
-    storageBucket: 'gari-lagbee.firebasestorage.app',
+    apiKey: 'AIzaSyAVCE9ne5-z4OUPeLWV4H3hc-OzvZC4z-Y',
+    appId: '1:60676382250:ios:44d3df0186dce840f3ed53',
+    messagingSenderId: '60676382250',
+    projectId: 'astha-care-giver',
+    storageBucket: 'astha-care-giver.firebasestorage.app',
     iosBundleId: 'com.example.drutoSheba',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDJqMOZfWVrg5015K7KZ-LhZXeecPIFmYA',
-    appId: '1:816144966935:web:01b7ad875bdca5382e8352',
-    messagingSenderId: '816144966935',
-    projectId: 'gari-lagbee',
-    authDomain: 'gari-lagbee.firebaseapp.com',
-    storageBucket: 'gari-lagbee.firebasestorage.app',
-    measurementId: 'G-6E4RXDHE9G',
+    apiKey: 'AIzaSyBU1bCTqKgW7M7NeeWxb58YeIeAFRlBgzY',
+    appId: '1:60676382250:web:f1a1ee7198bd4a30f3ed53',
+    messagingSenderId: '60676382250',
+    projectId: 'astha-care-giver',
+    authDomain: 'astha-care-giver.firebaseapp.com',
+    storageBucket: 'astha-care-giver.firebasestorage.app',
+    measurementId: 'G-1MR8MG8G4W',
   );
+
 }

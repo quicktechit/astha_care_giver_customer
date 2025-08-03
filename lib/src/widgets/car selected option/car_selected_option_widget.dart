@@ -7,13 +7,13 @@ import 'package:jatri_app/src/widgets/text/kText.dart';
 class CarSelectedOption extends StatefulWidget {
   final String carImg;
   final String carName;
-  final String capacity;
+  // final String capacity;
 
   const CarSelectedOption({
     super.key,
     required this.carImg,
     required this.carName,
-    required this.capacity,
+    // required this.capacity,
   });
 
   @override
@@ -31,7 +31,7 @@ class _CarSelectedOptionState extends State<CarSelectedOption> {
         padding: paddingH10,
         child: Row(
           children: [
-            Image.network(
+            Image.asset(
               widget.carImg,
               height: 50,
             ),
@@ -48,11 +48,11 @@ class _CarSelectedOptionState extends State<CarSelectedOption> {
                     fontWeight: FontWeight.bold,
                   ),
                   SizedBox(height: 3),
-                  KText(
-                    text: widget.capacity,
-                    fontSize: 14,
-                    color: black45,
-                  ),
+                  // KText(
+                  //   text: widget.capacity,
+                  //   fontSize: 14,
+                  //   color: black45,
+                  // ),
                 ],
               ),
             ),

@@ -78,7 +78,7 @@ class _CustomCommonAppBarState extends State<CustomCommonAppBar> {
       //     ),
       //   ),
       // ),
-      title: Image.asset("assets/icons/Gari-Lagbee-12.png",height: 32,),
+      title: Image.asset("assets/icons/Gari-Lagbee-12.png",height: 70,),
       leadingWidth: 150,
       actions: [
         GestureDetector(

@@ -170,9 +170,9 @@ class _AllTripHistoryState extends State<AllTripHistory> {
                                                   5.horizontalSpace,
                                                   StatusWidget(
                                                     icon:
-                                                        Icons.car_crash_rounded,
+                                                        Icons.medical_information_outlined,
                                                     statusTitle:
-                                                        "${item.source}",
+                                                        "All Service",
                                                     textColor: Colors.black,
                                                   ),
                                                   Spacer(),
@@ -196,7 +196,6 @@ class _AllTripHistoryState extends State<AllTripHistory> {
                                                 SizedBox(width: 5),
                                                 Expanded(
                                                   child: Text(
-
                                                     rentalData?.trip?.pickupLocation ??
                                                         returnData?.returnTrip?.location ??
                                                         divisionData?.divisionTrip?.pickupLocation ??
@@ -209,23 +208,23 @@ class _AllTripHistoryState extends State<AllTripHistory> {
                                               ],
                                             ),
                                             SizedBox(height: 5),
-                                            Row(
-                                              children: [
-                                                Icon(Icons.map, size: 20),
-                                                SizedBox(width: 5),
-                                                Expanded(
-                                                  child: Text(
-                                                    rentalData?.trip?.dropoffLocation ??
-                                                        returnData?.returnTrip?.destination ??
-                                                        divisionData?.divisionTrip?.dropoffLocation ??
-                                                        "N/A",
-                                                    maxLines: 1,
-                                                    overflow: TextOverflow.ellipsis,
-                                                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                                            // Row(
+                                            //   children: [
+                                            //     Icon(Icons.map, size: 20),
+                                            //     SizedBox(width: 5),
+                                            //     Expanded(
+                                            //       child: Text(
+                                            //         rentalData?.trip?.dropoffLocation ??
+                                            //             returnData?.returnTrip?.destination ??
+                                            //             divisionData?.divisionTrip?.dropoffLocation ??
+                                            //             "N/A",
+                                            //         maxLines: 1,
+                                            //         overflow: TextOverflow.ellipsis,
+                                            //         style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                                            //       ),
+                                            //     ),
+                                            //   ],
+                                            // ),
                                           ],
                                         ),
                                       ),
@@ -262,7 +261,7 @@ class _AllTripHistoryState extends State<AllTripHistory> {
                               item.amount == null
                                   ? Container()
                                   : Text(
-                                'Fare: ${item.amount} ৳',
+                                'Amount: ${item.amount} ৳',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               OutlinedButton(

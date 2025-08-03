@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
               flex: 2,
             ),
             Image.asset(
-              'assets/animations/icon.png',
+              'assets/icons/Gari-Lagbee-12.png',
               width: context.width / 1.5,
             ),
             Spacer(

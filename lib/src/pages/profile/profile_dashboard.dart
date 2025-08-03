@@ -113,7 +113,7 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                   ),
                   title: Text('aboutUs'.tr),
                   onTap: () {
-                    Get.to(() => AboutUs());
+                    // Get.to(() => AboutUs());
                   },
                   tileColor: Colors.blue.shade50,
                   // Set the background color for the tile
@@ -149,7 +149,7 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                   ),
                   title: Text('help'.tr),
                   onTap: () {
-                    Get.to(() => HelpPage());
+                    // Get.to(() => HelpPage());
                   },
                   tileColor: Colors.blue.shade50,
                   // Set the background color for the tile
@@ -203,7 +203,7 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                   ),
                   title: Text('Terms & Conditions'.tr),
                   onTap: () {
-                    Get.to(() => TermsAndCondition());
+                    // Get.to(() => TermsAndCondition());
                   },
                   tileColor: Colors.blue.shade50,
                   // Set the background color for the tile
@@ -221,7 +221,7 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                   ),
                   title: Text('Privacy Policy'.tr),
                   onTap: () {
-                    Get.to(() => PrivacyPolicy());
+                    // Get.to(() => PrivacyPolicy());
                   },
                   tileColor: Colors.blue.shade50,
                   // Set the background color for the tile

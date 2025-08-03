@@ -33,8 +33,8 @@ class _AuthStartPageState extends State<AuthStartPage> {
               children: [
                 SizedBox(height: 80.h),
                 Image.asset(
-                  'assets/animations/Banner.png',
-                  width: 500,
+                  'assets/icons/flat-nurse.png',
+                  height: 250,
                 ),
                 SizedBox(height: 20.h),
                 Text(

@@ -80,8 +80,8 @@ class SingleReturnHistoryTripDetailsPageState
                     ),
                     carName: _controller.returnTrip.value.data?.getvehicle?.name
                         .toString()??'',
-                    capacity:
-                        "${_controller.returnTrip.value.data?.getvehicle?.capacity.toString()} Seats Capacity",
+                    // capacity:
+                    //     "${_controller.returnTrip.value.data?.getvehicle?.capacity.toString()} Seats Capacity",
                   ),
                   SizedBox(height: 20.h),
 

@@ -68,12 +68,13 @@ class _AllTripHistoryPageState extends State<AllTripHistoryPage>
         bottom: TabBar(
           controller: tabController,
           isScrollable: true,
+            tabAlignment:TabAlignment.start,
           tabs: [
-            Tab(text: 'All Trip'.tr),
-            Tab(text: 'confirmed Trip'.tr),
-            Tab(text: 'Ongoing Trip'.tr),
-            Tab(text: 'Completed Trip'.tr),
-            Tab(text: 'Cancelled Trip'.tr),
+            Tab(text: 'All Service'.tr),
+            Tab(text: 'Confirmed Service'.tr),
+            Tab(text: 'Ongoing Service'.tr),
+            Tab(text: 'Completed Service'.tr),
+            Tab(text: 'Cancelled Service'.tr),
           ],
           labelColor: Colors.white,
           unselectedLabelColor: Colors.black,
