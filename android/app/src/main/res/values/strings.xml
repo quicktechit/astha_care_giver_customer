@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">726458046624076</string>
+    <string name="facebook_client_token">71240e15c420d123ae1655ce180ad017</string>
+    <string name="fb_login_protocol_scheme">fb726458046624076</string>
+    <string name="app_name">Astha Care Giver</string>
+</resources>
