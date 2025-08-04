@@ -380,15 +380,16 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder:
                         (BuildContext context, int index, int realIndex) {
                       return Container(
+                        clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 6,
-                              blurRadius: 7,
-                              offset: Offset(0, 3),
-                            ),
-                          ],
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Colors.grey.withOpacity(0.5),
+                          //     spreadRadius: 6,
+                          //     blurRadius: 7,
+                          //     offset: Offset(0, 3),
+                          //   ),
+                          // ],
                           color: bgColor,
                           borderRadius: BorderRadius.circular(10.r),
                         ),

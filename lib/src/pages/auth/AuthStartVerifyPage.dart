@@ -22,6 +22,12 @@ class _AuthStartPageState extends State<AuthStartPage> {
   final RegistrationController _controller = Get.put(RegistrationController());
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    mobileController.text="01641634899";
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
@@ -55,6 +61,7 @@ class _AuthStartPageState extends State<AuthStartPage> {
                 CustomTextFieldWithIcon(
                   label: 'Mobile Number',
                   icon: Icons.call,
+                  readonly: true,
                   keyboardType: TextInputType.number,
                   controller: mobileController,
                   hinttext: 'Enter Mobile Number',

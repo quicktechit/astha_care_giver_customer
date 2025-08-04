@@ -3,12 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:jatri_app/src/configs/appColors.dart';
 
 class CustomTextFieldWithIcon extends StatelessWidget {
   final String? label;
   final IconData icon;
   final String hinttext;
+  final bool? readonly;
   final TextEditingController controller;
   final TextInputType keyboardType;
   final int? maxLines;
@@ -18,6 +18,7 @@ class CustomTextFieldWithIcon extends StatelessWidget {
   const CustomTextFieldWithIcon({
     key,
      this.label,
+    this.readonly,
     required this.icon,
     required this.controller,
     required this.hinttext,
@@ -56,6 +57,8 @@ class CustomTextFieldWithIcon extends StatelessWidget {
             ],
           ),
           child: TextFormField(
+            readOnly: readonly ?? false,
+
             keyboardType: keyboardType,
             maxLines: maxLines,
             controller: controller,
