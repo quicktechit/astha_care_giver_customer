@@ -36,6 +36,7 @@ import '../../controllers/fixed_trip/fix_trip_controller.dart';
 import '../../controllers/rental trip request controllers/rental_trip_req_submit_controller.dart';
 import '../../controllers/return trip controller/return_filter_controller.dart';
 import '../offers/driver_supply/driver_supply.dart';
+import 'my service/my_service/my_service_page.dart';
 import 'offers/special_offer.dart';
 
 class HomePage extends StatefulWidget {
@@ -431,6 +432,7 @@ class _HomePageState extends State<HomePage> {
             ));
             break;
           case 1:
+          Get.to(() => MyServicePage());
           // Get.to(() => ReturnTripListFilterPage());
           // await returnTripFilter.returnTripFilterList(
           //   pickUpLocation: '',

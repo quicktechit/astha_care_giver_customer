@@ -21,7 +21,7 @@ class DateAndTimeState extends State<DateAndTime> {
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
-      helpText: 'selectJourneyTime'.tr,
+      helpText: 'Select Time'.tr,
       cancelText: 'cancel'.tr,
       confirmText: 'submit'.tr,
       context: context,
@@ -69,7 +69,7 @@ class DateAndTimeState extends State<DateAndTime> {
           Padding(
             padding: EdgeInsets.only(left: 10, top: 10),
             child: KText(
-              text: 'Journey Time',
+              text: 'Time',
               fontSize: 12,
             ),
           ),

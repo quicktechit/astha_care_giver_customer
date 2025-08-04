@@ -76,7 +76,7 @@ class _RentalListPageState extends State<RentalListPage> {
 
               icon: Icons.search,
               controller: TecC,
-              hinttext: "search").paddingSymmetric(horizontal: 10),
+              hinttext: "Fiend Your Service").paddingSymmetric(horizontal: 10),
           Expanded(
             child: Obx(
               () {

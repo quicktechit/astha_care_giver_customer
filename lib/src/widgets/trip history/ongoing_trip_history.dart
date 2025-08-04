@@ -20,6 +20,7 @@ import '../../pages/single history trip details/single_return_trip_history_detai
 import '../button/outlineButton.dart';
 import '../history_time_widget.dart';
 import '../status_widget.dart';
+import '../text/kText.dart';
 
 class OngoingTripHistory extends StatelessWidget {
    OngoingTripHistory({super.key});
@@ -143,31 +144,68 @@ class OngoingTripHistory extends StatelessWidget {
                           },
                           child: Container(
                             color: Colors.white,
-                            child: Column(
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: paddingH10V10,
-                                  child: Column(
+                                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      sizeH20,
                                       Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
                                         children: [
-                                          HistoryTimeWidget(
-                                            date: '$formattedDate $time',
+                                          Container(
+                                            clipBehavior:
+                                            Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                BorderRadius.circular(
+                                                    15),
+                                                color: Colors
+                                                    .black),
+                                            height: 60,
+                                            width: 60,
+                                            child: Image.network(  '${Urls.domain}/${rentalData?.vehicle?.image ??
+                                                returnData?.returnVehicle?.image ??
+                                                divisionData?.divisionVehicle?.image ??
+                                                ''}'),
+                                          ),sizeW10,
+                                          Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              KText(
+                                                text: "Day Care",
+                                                fontSize: 15,
+                                                // rentalData?.vehicle?.name ??
+                                                //     returnData?.returnVehicle?.name ??
+                                                //     divisionData?.divisionVehicle?.name ??
+                                                //     "N/A",
+                                              ),
+                                              KText(
+                                                text: "Quick Agency",
+                                                fontSize: 15,
+                                                // rentalData?.vehicle?.name ??
+                                                //     returnData?.returnVehicle?.name ??
+                                                //     divisionData?.divisionVehicle?.name ??
+                                                //     "N/A",
+                                              ),
+                                            ],
                                           ),
-                                          SizedBox(width: 10.h),
-                                          StatusWidget(
-                                            icon: Icons.medical_information_outlined,
-                                            statusTitle: "ON GOING",
-                                            textColor: Colors.green,
-                                          ),
-                                          SizedBox(width: 16.h),
                                         ],
                                       ),
                                       sizeH10,
-                                      Divider(),
+                                      Row(
+                                        children: [
+                                          Icon(Icons
+                                              .access_time),
+                                          sizeW10,
+                                          KText(
+                                            text:
+                                            "Monthly",
+                                            fontSize: 15,
+                                          )
+                                        ],
+                                      ),
+                                      HistoryTimeWidget(
+                                        date: '$formattedDate $time',
+                                      ),
                                       Container(
                                         width: Get.width,
                                         color: white,
@@ -259,33 +297,7 @@ class OngoingTripHistory extends StatelessWidget {
                                                   ],
                                                 ),
                                               ),
-                                              Column(
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                    EdgeInsets.all(4.0.h),
-                                                    child: CircleAvatar(
-                                                      backgroundColor:
-                                                      Colors.black,
-                                                      radius: 30,
-                                                      backgroundImage:
-                                                      NetworkImage(
-                                                        '${Urls.domain}/${rentalData?.vehicle?.image ??
-                                                            returnData?.returnVehicle?.image ??
-                                                            divisionData?.divisionVehicle?.image ??
-                                                            ''}',
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    rentalData?.vehicle?.name ??
-                                                        returnData?.returnVehicle?.name ??
-                                                        divisionData?.divisionVehicle?.name ??
-                                                        "N/A",
-                                                    style: TextStyle(fontWeight: FontWeight.bold),
-                                                  ),
-                                                ],
-                                              ),
+
                                             ],
                                           ),
                                         ),

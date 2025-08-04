@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/controllers/distance_controller/distance_time_controller.dart';
-import 'package:jatri_app/src/pages/single%20history%20trip%20details/single_division_trip_history.dart';
-import 'package:jatri_app/src/pages/single%20history%20trip%20details/single_return_trip_history_details.dart';
+import 'package:jatri_app/src/widgets/text/kText.dart';
 
 import '../../configs/appBaseUrls.dart';
 import '../../configs/empty_box_widget.dart';
@@ -13,9 +12,7 @@ import '../../controllers/language/langController.dart';
 import '../../controllers/rental trip history controller/rental_trip_history_controller.dart';
 import '../../models/all_trip_model.dart';
 import '../../pages/Trip History/map_page_view.dart';
-import '../../pages/single history trip details/single_history_trip_details.dart';
 import '../history_time_widget.dart';
-import '../status_widget.dart';
 
 class AllTripHistory extends StatefulWidget {
   const AllTripHistory({super.key});
@@ -96,7 +93,8 @@ class _AllTripHistoryState extends State<AllTripHistory> {
                 }
 
                 distanceTimeController.calculateDistanceAndDuration(upLat, upLng, downLat, downLng);
-
+                                print(
+                                    "${Urls.domain}/${rentalData?.vehicle?.image ?? returnData?.returnVehicle?.image ?? divisionData?.divisionVehicle?.image ?? ''}");
                                 var formattedDate;
                                 var time = '';
                                 if (returnData != null) {
@@ -131,67 +129,118 @@ class _AllTripHistoryState extends State<AllTripHistory> {
 
                                 return InkWell(
                   onTap: () {
-                    String? tripId = rentalData?.trip?.id?.toString() ??
-                        divisionData?.divisionTrip?.id?.toString() ??
-                        returnData?.returnTrip?.id?.toString();
-
-                    if (tripId != null) {
-                                      if (divisionData != null) {
-                                        Get.to(() => SingleDivisionTripHistory(
-                                            tripId: tripId));
-                                      } else if(rentalData!=null) {
-                                        Get.to(() =>
-                                            SingleHistoryTripDetailsPage(
-                                                tripId: tripId));
-                                      }else{
-                                        Get.to(() =>
-                                            SingleReturnHistoryTripDetailsPage(
-                                                tripId: item.id.toString()));
-                                      }
-                                    } else {
-                                      Get.snackbar("Error", "Trip ID not found", snackPosition: SnackPosition.TOP);
-                    }
-                  },
-                  child: Container(
+                                    // String? tripId = rentalData?.trip?.id?.toString() ??
+                                    //     divisionData?.divisionTrip?.id?.toString() ??
+                                    //     returnData?.returnTrip?.id?.toString();
+                                    //
+                                    // if (tripId != null) {
+                                    //                   if (divisionData != null) {
+                                    //                     Get.to(() => SingleDivisionTripHistory(
+                                    //                         tripId: tripId));
+                                    //                   } else if(rentalData!=null) {
+                                    //                     Get.to(() =>
+                                    //                         SingleHistoryTripDetailsPage(
+                                    //                             tripId: tripId));
+                                    //                   }else{
+                                    //                     Get.to(() =>
+                                    //                         SingleReturnHistoryTripDetailsPage(
+                                    //                             tripId: item.id.toString()));
+                                    //                   }
+                                    //                 } else {
+                                    //                   Get.snackbar("Error", "Trip ID not found", snackPosition: SnackPosition.TOP);
+                                    // }
+                                  },
+                                  child: Container(
                     color: Colors.white,
                     child: Column(
                       children: [
                         Padding(
                           padding: EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              SizedBox(height: 20),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  HistoryTimeWidget(
-                                    date: '$formattedDate $time',
-                                                  ),
-                                                  5.horizontalSpace,
-                                                  StatusWidget(
-                                                    icon:
-                                                        Icons.medical_information_outlined,
-                                                    statusTitle:
-                                                        "All Service",
-                                                    textColor: Colors.black,
-                                                  ),
-                                                  Spacer(),
-                                                ],
-                                              ),
-                              Divider(),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+
                               Container(
                                 width: Get.width,
                                 color: Colors.white,
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                                  child: Row(
-                                    children: [
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 10,
+                                                      vertical: 5),
+                                                  child: Row(
+                                                    children: [
                                       Expanded(
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Row(
-                                              children: [
+                                                            Row(
+                                                              children: [
+                                                                Container(
+                                                                  clipBehavior:
+                                                                      Clip.antiAlias,
+                                                                  decoration: BoxDecoration(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              15),
+                                                                      color: Colors
+                                                                          .black),
+                                                                  height: 60,
+                                                                  width: 60,
+                                                                  child: Image
+                                                                      .network(
+                                                                    '${Urls.domain}/${rentalData?.vehicle?.image ?? returnData?.returnVehicle?.image ?? divisionData?.divisionVehicle?.image ?? ''}',
+                                                                  ),
+                                                                ),
+                                                                sizeW5,
+                                                                Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    KText(
+                                                                      text:
+                                                                          "Day care",
+                                                                      // rentalData?.vehicle?.name ??
+                                                                      //     returnData?.returnVehicle?.name ??
+                                                                      //     divisionData?.divisionVehicle?.name ??
+                                                                      //     "N/A",
+                                                                      fontSize:
+                                                                          15,
+                                                                    ),
+                                                                    KText(
+                                                                      text:
+                                                                          "Quick Agency",
+                                                                      // rentalData?.vehicle?.name ??
+                                                                      //     returnData?.returnVehicle?.name ??
+                                                                      //     divisionData?.divisionVehicle?.name ??
+                                                                      //     "N/A",
+                                                                      fontSize:
+                                                                          15,
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            sizeH10,
+                                                            Row(
+                                                              children: [
+                                                                Icon(Icons
+                                                                    .access_time),
+                                                                sizeW10,
+                                                                KText(
+                                                                  text:
+                                                                      "Monthly",
+                                                                  fontSize: 15,
+                                                                )
+                                                              ],
+                                                            ),
+                                            HistoryTimeWidget(
+                                              date: '$formattedDate $time',
+                                            ),
+                                                            sizeH10,
+                                                            Row(
+                                                              children: [
                                                 Icon(Icons.location_on, size: 20),
                                                 SizedBox(width: 5),
                                                 Expanded(
@@ -207,9 +256,9 @@ class _AllTripHistoryState extends State<AllTripHistory> {
                                                 ),
                                               ],
                                             ),
-                                            SizedBox(height: 5),
-                                            // Row(
-                                            //   children: [
+
+                                                            // Row(
+                                                            //   children: [
                                             //     Icon(Icons.map, size: 20),
                                             //     SizedBox(width: 5),
                                             //     Expanded(
@@ -228,26 +277,8 @@ class _AllTripHistoryState extends State<AllTripHistory> {
                                           ],
                                         ),
                                       ),
-                                      CircleAvatar(
-                                        backgroundColor: Colors.black,
-                                        radius: 30,
-                                        backgroundImage: NetworkImage(
-                                          '${Urls.domain}/${rentalData?.vehicle?.image ??
-                                              returnData?.returnVehicle?.image ??
-                                              divisionData?.divisionVehicle?.image ??
-                                              ''}',
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        rentalData?.vehicle?.name ??
-                                            returnData?.returnVehicle?.name ??
-                                            divisionData?.divisionVehicle?.name ??
-                                            "N/A",
-                                        style: TextStyle(fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
-                                  ),
+                                                    ],
+                                                  ),
                                 ),
                               ),
                             ],

@@ -19,6 +19,7 @@ import '../../pages/single history trip details/single_return_trip_history_detai
 import '../button/outlineButton.dart';
 import '../history_time_widget.dart';
 import '../status_widget.dart';
+import '../text/kText.dart';
 
 class CancelTripHistory extends StatelessWidget {
   CancelTripHistory({super.key});
@@ -144,28 +145,66 @@ final DistanceTimeController distanceTimeController =Get.put(DistanceTimeControl
                             children: [
                               Padding(
                                 padding: paddingH10V10,
-                                child: Column(
+                                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    sizeH20,
-                                    Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        HistoryTimeWidget(
-                                          date: "$formattedDate $time",
-                                        ),
-                                        SizedBox(width: 10.h),
-                                        StatusWidget(
-                                          icon:  Icons.cancel_outlined,
 
-                                          statusTitle: "CANCEL",
-                                          textColor: Colors.red,
+                                    Row(
+                                      children: [
+                                        Container(
+                                          clipBehavior:
+                                          Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  15),
+                                              color: Colors
+                                                  .black),
+                                          height: 60,
+                                          width: 60,
+                                          child: Image.network(  '${Urls.domain}/${rentalData?.vehicle?.image ??
+                                              returnData?.returnVehicle?.image ??
+                                              divisionData?.divisionVehicle?.image ??
+                                              ''}'),
+                                        ),sizeW10,
+                                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            KText(
+                                              text: "Day Care",
+                                              fontSize: 15,
+                                              // rentalData?.vehicle?.name ??
+                                              //     returnData?.returnVehicle?.name ??
+                                              //     divisionData?.divisionVehicle?.name ??
+                                              //     "N/A",
+                                            ),
+                                            KText(
+                                              text: "Quick Agency",
+                                              fontSize: 15,
+                                              // rentalData?.vehicle?.name ??
+                                              //     returnData?.returnVehicle?.name ??
+                                              //     divisionData?.divisionVehicle?.name ??
+                                              //     "N/A",
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(width: 16.h),
                                       ],
                                     ),
                                     sizeH10,
-                                    Divider(),
+                                    Row(
+                                      children: [
+                                        Icon(Icons
+                                            .access_time),
+                                        sizeW10,
+                                        KText(
+                                          text:
+                                          "Monthly",
+                                          fontSize: 15,
+                                        )
+                                      ],
+                                    ),
+                                    HistoryTimeWidget(
+                                      date: "$formattedDate $time",
+                                    ),
+                                    sizeH10,
                                     Container(
                                       width: Get.width,
                                       color: white,

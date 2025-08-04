@@ -378,15 +378,15 @@ class _RentalPointPageState extends State<RentalPointPage> {
               ),
             ),
           ),
-          daily != true ? Container() : sizeH5,
-          daily != true
-              ? Container()
-              : ReturnDateAndTime(
-                  onReturnDateTimeSelected: (date, time) {
-                    selectedReturnDate = date;
-                    selectedReturnTime = time;
-                  },
-                ),
+          // daily != true ? Container() : sizeH5,
+          // daily != true
+          //     ? Container()
+          //     : ReturnDateAndTime(
+          //         onReturnDateTimeSelected: (date, time) {
+          //           selectedReturnDate = date;
+          //           selectedReturnTime = time;
+          //         },
+          //       ),
           sizeH5,
           Container(
             width: Get.width,
@@ -437,14 +437,14 @@ class _RentalPointPageState extends State<RentalPointPage> {
               ),
             ),
           ),
-          sizeH5,
-          if (weekly)
-            ReturnDateAndTime(
-              onReturnDateTimeSelected: (date, time) {
-                selectedWeeklyDate = date;
-                selectedWeeklyTime = time;
-              },
-            ),
+          // sizeH5,
+          // if (weekly)
+          //   ReturnDateAndTime(
+          //     onReturnDateTimeSelected: (date, time) {
+          //       selectedWeeklyDate = date;
+          //       selectedWeeklyTime = time;
+          //     },
+          //   ),
           sizeH5,
           Container(
             width: Get.width,
@@ -485,7 +485,6 @@ class _RentalPointPageState extends State<RentalPointPage> {
                     onChanged: (val) {
                       setState(() {
                         monthly = val;
-
                         isHourly = false;
                         daily = false;
                         weekly = false;
@@ -496,14 +495,14 @@ class _RentalPointPageState extends State<RentalPointPage> {
               ),
             ),
           ),
-          sizeH5,
-          if (monthly)
-            ReturnDateAndTime(
-              onReturnDateTimeSelected: (date, time) {
-                selectedMonthlyDate = date;
-                selectedMonthlyTime = time;
-              },
-            ),
+          // sizeH5,
+          // if (monthly)
+          //   ReturnDateAndTime(
+          //     onReturnDateTimeSelected: (date, time) {
+          //       selectedMonthlyDate = date;
+          //       selectedMonthlyTime = time;
+          //     },
+          //   ),
           sizeH5,
           NoteTextFiled(
             controller: noteController,
