@@ -1,5 +1,5 @@
 const gridTitleList = [
-  'All Service',
+  'Service Request',
   'My Service',
   // 'Critical Care',
   // // 'Tourist Bus',
@@ -26,7 +26,7 @@ const gridTitleList2 = [
   "Nurse Certified",
   'Critical Care',
   "Neuro Care",
-  'Physuitherapy Service',
+  'Physiotherapy Service',
   'Baby-Nanny Care',
   // 'Office Pick & Drop Service',
   // 'Car Monthly Rent',

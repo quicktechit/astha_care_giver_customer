@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-final primaryColor = HexColor('#4188fe');
+final primaryColor = HexColor('#205dab');
 final primaryColor50 = HexColor('#ffe6e5');
 final bgColor = Color(0xFFf2f2f2);
 final grey = Colors.grey;
@@ -14,6 +14,6 @@ final black45 = Colors.black45;
 final transparent = Colors.transparent;
 const Color secondaryColor = Color.fromRGBO(214, 189, 255, 1);
 const Color blue=Color.fromRGBO(27,249,255, 1);
-final  maincolor = HexColor('#4188fe');
+final  maincolor = HexColor('#205dab');
 
 final greyBackgroundColor = HexColor('#4188fe');

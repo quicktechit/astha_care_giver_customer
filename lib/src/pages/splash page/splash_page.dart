@@ -41,17 +41,14 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: white,
       body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Spacer(
-              flex: 2,
-            ),
+
             Image.asset(
               'assets/icons/Gari-Lagbee-12.png',
               width: context.width / 1.5,
             ),
-            Spacer(
-              flex: 1,
-            ),
+
             // loader(),
             // SizedBox(height: 5.h),
             // Text(
