@@ -29,11 +29,18 @@ class CarLiveBiddingContainerWidget extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            InkWell(
-              onTap: onTap,
-              child: Image.network(
-                img,
-                scale: 1.4,
+            Container(
+              width: 90,height: 90,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(100),border: Border.all(color: maincolor,width: 2)),
+              child: ClipOval(
+                child: InkWell(
+                  onTap: onTap,
+                  child: Image.network(
+                    img,
+                    fit: BoxFit.cover,
+                  )
+                ),
               ),
             ),
             sizeW20,
@@ -49,7 +56,7 @@ class CarLiveBiddingContainerWidget extends StatelessWidget {
                 SizedBox(height: 3),
                 KText(
                   text: capacity,
-                  fontSize: 14,
+                  fontSize: 15,fontWeight: FontWeight.bold,
                   color: black45,
                 ),
                 KText(

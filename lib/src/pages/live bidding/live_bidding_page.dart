@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:jatri_app/src/components/bottom%20navbar/bottom.dart';
 import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/empty_box_widget.dart';
@@ -190,19 +191,14 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                             padding: const EdgeInsets.all(8.0),
                             child: CarLiveBiddingContainerWidget(
                               img: Urls.getImageURL(
-                                  endPoint: data.getBrand?.image.toString()??''),
-                              carName: data.getvehicle?.model.toString()??'',
-                              capacity:
-                                  '${data.getBrand?.capacity.toString()} Seats Capacity',
+                                  endPoint: data.getpartner?.image.toString()??''),
+                              carName: data.getpartner?.name.toString()??'',
+                              capacity: 'Fare: ${data.amount.toString()} TK',
                               rating: '',
-                              fare: 'Fare: ${data.amount.toString()} TK',
-                              carNumber:
-                                  '${data.getvehicle?.metro.toString()}\n${data.getvehicle?.metroNo.toString()}',
+                              fare: '',
+                              carNumber: '',
                               onTap: () {
-                                // Get.to(() => CarDetailsPage(
-                                //       tripId: data.tripId.toString(),
-                                //       bidId: data.id.toString(),
-                                //     ));
+
                               },
                             ),
                           ),
@@ -244,7 +240,7 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                         borderRadius: BorderRadius.circular(10.r),
                       ),
                       child: KText(
-                        text: 'Cancel Trip',
+                        text: 'Cancel Service',
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
@@ -272,12 +268,12 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                           Get.find<CommonController>().getCustomerStatus(0);
                           _rentalTripSubmitController.liveBidStart.value=false;
                           box.write("liveBidStart",false);
-
-                          Get.to(() => LiveBiddingConfirmScreen(
-                              rentalBidConfirm: confirmController
-                                    .bidConfirmModel.value.data!,
-                                id: '${confirmController.bidConfirmModel.value.data?.tripConfirm?.trackingId}',
-                              ));
+Get.offAll(DashboardView());
+                          // Get.to(() => LiveBiddingConfirmScreen(
+                          //     rentalBidConfirm: confirmController
+                          //           .bidConfirmModel.value.data!,
+                          //       id: '${confirmController.bidConfirmModel.value.data?.tripConfirm?.trackingId}',
+                          //     ));
                         } else {}
                       }
                     },
@@ -298,57 +294,13 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                         borderRadius: BorderRadius.circular(10.r),
                       ),
                       child: KText(
-                        text: 'Continue Trip',
+                        text: 'Continue Service',
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  // Container(
-                  //   width: Get.width / 3,
-                  //   alignment: Alignment.center,
-                  //   decoration: BoxDecoration(
-                  //     boxShadow: [
-                  //       BoxShadow(
-                  //         color: Colors.grey.withOpacity(0.5),
-                  //         spreadRadius: 3,
-                  //         blurRadius: 4,
-                  //         offset: Offset(0, 3),
-                  //       ),
-                  //     ],
-                  //     color: maincolor,
-                  //     borderRadius: BorderRadius.circular(10.r),
-                  //   ),
-                  //   child: primaryButton(
-                  //     icon: Icons.arrow_circle_right_outlined,
-                  //     buttonName: 'Continue',
-                  //     onTap: () async {
-                  //       if (selectedCarIndex != null &&
-                  //           selectedCarIndex! <
-                  //               liveBiddingController.liveBidData.length) {
-                  //         final LiveBidData selectedBidData =
-                  //             liveBiddingController
-                  //                 .liveBidData[selectedCarIndex!];
-                  //
-                  //         final ReturnBidConfirmController confirmController =
-                  //             ReturnBidConfirmController();
-                  //
-                  //         await confirmController.bidConfirm(
-                  //           bidId: selectedBidData.id.toString(),
-                  //           tripId: selectedBidData.tripId.toString(),
-                  //         );
-                  //
-                  //         if (confirmController
-                  //                 .bidConfirmModel.value.status ==
-                  //             "success") {
-                  //           Get.to(() => LiveBiddingConfirmScreen(
-                  //               rentalBidConfirm: confirmController
-                  //                   .bidConfirmModel.value.data!));
-                  //         } else {}
-                  //       }
-                  //     },
-                  //   ),
-                  // ),
+
                 ],
               ),
             ),
@@ -387,7 +339,7 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "Cancel trip?",
+                  "Cancel Service?",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -413,7 +365,7 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                           var data = fixedTripController
                               .customerBoforeData[index];
                           return ListTile(
-                            leading: Icon(Icons.no_crash),
+                            leading: Icon(Icons.medical_services),
                             title: Text(
                               data.title.toString(),
                               style: TextStyle(color: Colors.black),
@@ -430,7 +382,7 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () => Get.back(),
-                  child: Text("Keep my trip"),
+                  child: Text("Keep my Service"),
                 ),
               ],
             ),

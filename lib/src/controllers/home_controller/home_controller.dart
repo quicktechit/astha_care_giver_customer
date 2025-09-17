@@ -235,7 +235,7 @@ var partnership=PartnerShipModel().obs;
 
   Future<void> fetchPartnerships() async {
     // Create the GET request
-    var request = http.Request('GET', Uri.parse('https://garilagbee.com/api/v1/customer/partnerships'));
+    var request = http.Request('GET', Uri.parse('${Urls.baseUrl}/customer/partnerships'));
 
     try {
       // Send the request

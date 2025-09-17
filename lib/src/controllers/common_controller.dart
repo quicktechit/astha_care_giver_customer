@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/models/status_model.dart';
 import 'package:jatri_app/src/pages/Trip%20History/trip_history_page.dart';
 import 'package:jatri_app/src/pages/home/homePage.dart';
@@ -32,7 +33,7 @@ class CommonController extends GetxController {
       'Authorization': 'Bearer $token',
     };
 
-    var url = Uri.parse('https://garilagbee.com/api/v1/customer/status?status=$status');
+    var url = Uri.parse('${Urls.baseUrl}/customer/status?status=$status');
 
     try {
       final response = await http.get(url, headers: headers);

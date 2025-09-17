@@ -10,12 +10,27 @@ import '../../configs/appBaseUrls.dart';
 
 class QuickTechServiceController extends GetxController{
   var serviceData = QuickTechServiceTypeModel().obs;
+  var filteredList = <Data>[].obs;
+var isLoading=false.obs;
+  void searchByAgencyType(String query) {
+    if (serviceData.value.data == null || query.isEmpty) {
+      filteredList.value =  serviceData.value.data ?? [];
+      return;
+    }
+
+    filteredList.value = serviceData.value.data!
+        .where((item) =>
+    item.agencyType != null &&
+        item.agencyType!.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+  }
 
   Future<void> getServices() async {
     LoaderUtils().showGetLoading();
     var request = http.Request('GET', Uri.parse('${Urls.domain}/servicetypes'));
-
+    isLoading.value=true;
     http.StreamedResponse response = await request.send();
+    isLoading.value=false;
    LoaderUtils().hideGetLoading();
 
     if (response.statusCode == 200) {
@@ -23,6 +38,7 @@ class QuickTechServiceController extends GetxController{
       var jsonData = jsonDecode(responseBody);
 
       serviceData.value = QuickTechServiceTypeModel.fromJson(jsonData);
+      filteredList.value = serviceData.value.data ?? [];
       debugPrint("Data stored successfully in serviceData.");
     } else {
       debugPrint("Error: ${response.reasonPhrase}");

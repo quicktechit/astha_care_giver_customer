@@ -76,12 +76,15 @@ class _RentalListPageState extends State<RentalListPage> {
           CustomTextFieldWithIcon(
 
               icon: Icons.search,
+              onChanged: (value) {
+                servicesController.searchByAgencyType(value);
+              },
               controller: TecC,
               hinttext: "Fiend Your Service").paddingSymmetric(horizontal: 10),
           Expanded(
             child: Obx(
               () {
-                if (carCategoryController.isLoading.value) {
+                if (servicesController.isLoading.value) {
                   return Center(
                     child: loader(),
                   );
@@ -102,18 +105,18 @@ class _RentalListPageState extends State<RentalListPage> {
                               childAspectRatio: 1.2, // Adjust based on layout
                             ),
                             // itemCount: carCategoryController.carListData.length,
-                            itemCount: servicesController.serviceData.value.data?.length,
+                            itemCount: servicesController.filteredList.value.length,
                             itemBuilder: (context, i) {
-                              final item = servicesController.serviceData.value.data?[i];
+                              final item = servicesController.filteredList[i];
                               return GestureDetector(
                                 onTap: () {
                                   Get.to(
                                         () => RentalPointPage(
-                                      carImg: item?.image??'',
-                                      carName: item?.agencyType??'',
+                                      carImg: item.image??'',
+                                      carName: item.agencyType??'',
                                       capacity: '1',
                                       carId: i.toString(),
-                                      service_id: item?.id.toString()??''
+                                      service_id: item.id.toString()??''
                                     ),
                                   );
                                 },
@@ -129,26 +132,12 @@ class _RentalListPageState extends State<RentalListPage> {
                                       MainAxisAlignment.center,
                                       children: [
                                         Image.network(
-                                          // Urls.getImageURL(endPoint: item.image.toString()),
-                                          '${Urls.domain}/${item?.image}',
+                                          '${Urls.domain}/${item.image}',
                                           fit: BoxFit.fill,
                                           width: 60,
                                         ),
-                                        // SizedBox(width: 5),
-                                        // Container(
-                                        //   height: 57,
-                                        //   width: 3,
-                                        //   decoration: BoxDecoration(
-                                        //     borderRadius: BorderRadius.circular(15),
-                                        //     color: bgColor,
-                                        //   ),
-                                        // ),
-                                        // SizedBox(width: 5),
                                         KText(
-                                          text: item?.agencyType??'',
-                                          // text: langController.selectedLang.value.languageCode == 'en'
-                                          //     ? item.name.toString()
-                                          //     : item.nameBn.toString(),
+                                          text: item.agencyType??'',
                                           fontSize: 15,
                                           textAlign: TextAlign.center,
                                           fontWeight: FontWeight.w600,

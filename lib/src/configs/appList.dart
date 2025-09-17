@@ -28,10 +28,7 @@ const gridTitleList2 = [
   "Neuro Care",
   'Physiotherapy Service',
   'Baby-Nanny Care',
-  // 'Office Pick & Drop Service',
-  // 'Car Monthly Rent',
-  // 'Driver Supply',
-  // 'Driver Training',
+
 ];
 const gridImageList2 = [
   "assets/images/car10.png",
