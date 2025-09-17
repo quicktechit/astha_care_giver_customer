@@ -1,19 +1,15 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/configs/loader.dart';
 import 'package:jatri_app/src/controllers/live%20location%20controller/live_location_controller.dart';
 import 'package:jatri_app/src/controllers/rental%20trip%20request%20controllers/rental_trip_request_check_controller.dart';
-import 'package:jatri_app/src/pages/home/rental/tripDetailsPage.dart';
 import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/car%20selected%20option/car_selected_option_widget.dart';
 import 'package:jatri_app/src/widgets/date%20and%20time%20widget/date_time_widget.dart';
-import 'package:jatri_app/src/widgets/date%20and%20time%20widget/return_date_and_time_widget.dart';
 import 'package:jatri_app/src/widgets/drop_point_widget.dart';
 import 'package:jatri_app/src/widgets/note_controller.dart';
 import 'package:jatri_app/src/widgets/pick_up_location_widget.dart';

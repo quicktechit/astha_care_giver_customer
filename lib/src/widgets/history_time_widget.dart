@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
 
 class HistoryTimeWidget extends StatelessWidget {

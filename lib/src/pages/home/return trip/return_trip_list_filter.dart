@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jatri_app/src/components/drawer/sidebarComponent.dart';
-import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/empty_box_widget.dart';
 import 'package:jatri_app/src/configs/loader.dart';
 import 'package:jatri_app/src/controllers/return%20trip%20controller/return_filter_controller.dart';
 import 'package:jatri_app/src/pages/home/return%20trip/bid_now_page.dart';
-import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/car_container_widget.dart';
-import 'package:jatri_app/src/widgets/custom%20app%20bar/app_bar_widget.dart';
-import 'package:jatri_app/src/widgets/history_time_widget.dart';
 import 'package:jatri_app/src/widgets/partner_bid_area_details_widget.dart';
 import 'package:jatri_app/src/widgets/status_widget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
-
-import '../../../configs/appUtils.dart';
-import '../../../widgets/return_trip_filter_widget.dart';
 import '../../Trip History/trip_history_page.dart';
 
 

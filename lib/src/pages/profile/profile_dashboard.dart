@@ -11,11 +11,6 @@ import '../../controllers/profile controllers/profile_get_controller.dart';
 import '../../widgets/lang/langWidget.dart';
 import '../../widgets/text/kText.dart';
 import '../auth/AuthStartVerifyPage.dart';
-import '../guide line/about_us_page.dart';
-import '../guide line/privacy_policy_page.dart';
-import '../guide line/terms_condition_page.dart';
-import '../help/helpPage.dart';
-import '../home/exclusiveMenu/promoOfferPage.dart';
 import '../notification page/notification_page.dart';
 
 class ProfileDashboard extends StatefulWidget {

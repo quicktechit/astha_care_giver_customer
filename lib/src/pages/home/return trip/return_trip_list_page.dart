@@ -10,7 +10,6 @@ import 'package:jatri_app/src/pages/Trip%20History/trip_history_page.dart';
 import 'package:jatri_app/src/pages/home/return%20trip/bid_now_page.dart';
 import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/car_container_widget.dart';
-import 'package:jatri_app/src/widgets/custom%20app%20bar/app_bar_widget.dart';
 import 'package:jatri_app/src/widgets/history_time_widget.dart';
 import 'package:jatri_app/src/widgets/partner_bid_area_details_widget.dart';
 import 'package:jatri_app/src/widgets/status_widget.dart';

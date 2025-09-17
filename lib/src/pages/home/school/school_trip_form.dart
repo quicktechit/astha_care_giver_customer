@@ -5,9 +5,7 @@ import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/pages/home/corporate/corporate_success_screen.dart';
 import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/text/custom_text_filed_widget.dart';
-
 import '../../../configs/appUtils.dart';
-import '../../../controllers/fixed_trip/fix_trip_controller.dart';
 import '../../../widgets/date and time widget/date_time_widget.dart';
 import '../../../widgets/drop_point_widget.dart';
 import '../../../widgets/pick_up_location_widget.dart';

@@ -5,39 +5,26 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/controllers/common_controller.dart';
 import 'package:jatri_app/src/controllers/home_controller/home_controller.dart';
-import 'package:jatri_app/src/pages/home/offers/today_offer.dart';
-import 'package:jatri_app/src/pages/home/packege/packege.dart';
+import 'package:jatri_app/src/controllers/service%20controller/quick_tech_service_controller.dart';
 import 'package:jatri_app/src/pages/home/rental/rentalListPage.dart';
-import 'package:jatri_app/src/pages/home/return%20trip/return_trip_list_filter.dart';
-import 'package:jatri_app/src/pages/home/suv_car/suv_car.dart';
-import 'package:jatri_app/src/pages/home/tourist_bus/tourist_bus.dart';
 import 'package:jatri_app/src/pages/live%20bidding/live_bidding_page.dart';
-import 'package:jatri_app/src/pages/offers/driver_trining/driver_training.dart';
 import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/custom%20app%20bar/app_bar_widget.dart';
 import 'package:jatri_app/src/widgets/divider_widget.dart';
 import 'package:jatri_app/src/widgets/slider/slider_widget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
-import 'package:sidebarx/sidebarx.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../configs/appList.dart';
 import '../../controllers/fixed_trip/fix_trip_controller.dart';
-import '../../controllers/rental trip request controllers/rental_trip_req_submit_controller.dart';
 import '../../controllers/return trip controller/return_filter_controller.dart';
-import '../offers/driver_supply/driver_supply.dart';
 import 'my service/my_service/my_service_page.dart';
-import 'offers/special_offer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -47,12 +34,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final CommonController commonController=Get.find();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final _controller = SidebarXController(selectedIndex: 0, extended: true);
   var box = GetStorage();
-  final RentalTripSubmitController _rentalTripSubmitController =
-      Get.put(RentalTripSubmitController());
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
-  final _key = GlobalKey<ExpandableFabState>();
   final QuickTechFixedTripController fixedTripController =
       Get.put(QuickTechFixedTripController());
   final HomeController homeController = Get.find();
@@ -100,7 +82,6 @@ class _HomePageState extends State<HomePage> {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('============Received FCM message: ${message.notification?.body}');
       print('============Received FCM message: ${message.notification?.title}');
-      String? notificationMessage = message.notification?.body;
     });
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       print(
@@ -253,11 +234,13 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+
                     _buildCard(context, 0, gridImageList, gridTitleList,Get.width/2.5,),
                     SizedBox(width: 5), // Horizontal spacing
                     _buildCard(context, 1, gridImageList, gridTitleList,Get.width/2.5),
                     // SizedBox(width: 5), // Horizontal spacing
                     // _buildCard(context, 2, gridImageList, gridTitleList,null),
+
                   ],
                 ),
                 // SizedBox(height: 5), // Vertical spacing between rows
@@ -362,34 +345,29 @@ class _HomePageState extends State<HomePage> {
             DividerWidget(title: "Partnership With"),
             10.verticalSpace,
             Obx(
-              () => homeController.partnership.value.data !=null || homeController.partnership.value.data!.isNotEmpty? CarouselSlider.builder(
-                itemCount: homeController.partnership.value.data?.length,
-                options: CarouselOptions(
-                  height: 150,
-                  viewportFraction: 1,
-                  pageSnapping: true,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                  autoPlayInterval: Duration(seconds: 4),
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  scrollDirection: Axis.horizontal,
+                  () {
+                final partnershipData = homeController.partnership.value.data;
+
+                if (partnershipData != null && partnershipData.isNotEmpty) {
+                  return CarouselSlider.builder(
+                    itemCount: partnershipData.length,
+                    options: CarouselOptions(
+                      height: 150,
+                      viewportFraction: 1,
+                      pageSnapping: true,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      enlargeCenterPage: true,
+                      autoPlayInterval: Duration(seconds: 4),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      scrollDirection: Axis.horizontal,
                     ),
-                    itemBuilder:
-                        (BuildContext context, int index, int realIndex) {
+                    itemBuilder: (BuildContext context, int index, int realIndex) {
                       return Container(
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
-                          // boxShadow: [
-                          //   BoxShadow(
-                          //     color: Colors.grey.withOpacity(0.5),
-                          //     spreadRadius: 6,
-                          //     blurRadius: 7,
-                          //     offset: Offset(0, 3),
-                          //   ),
-                          // ],
                           color: bgColor,
                           borderRadius: BorderRadius.circular(10.r),
                         ),
@@ -399,22 +377,26 @@ class _HomePageState extends State<HomePage> {
                           child: Image.asset(
                             "assets/icons/flat-nurse.png",
                             filterQuality: FilterQuality.high,
-                            // '${Urls.getImageURL(
-                            //     endPoint: "${homeController.partnership.value
-                            //         .data?[index].image}")}',
+                            // '${Urls.getImageURL(endPoint: "${partnershipData[index].image}")}',
                             fit: BoxFit.fill,
                           ),
                         ),
                       );
                     },
-                  ):SizedBox(),
+                  );
+                } else {
+                  return SizedBox();
+                }
+              },
             ),
+
             60.verticalSpace,
           ],
         ),
       ),
     );
   }
+  final serviceController = Get.put(QuickTechServiceController());
   Widget _buildCard(
       BuildContext context, int index, List<String> imageList, List<String> titleList,width) {
     return GestureDetector(
@@ -423,6 +405,7 @@ class _HomePageState extends State<HomePage> {
 
         switch (index) {
           case 0:
+            await serviceController.getServices();
             Get.to(() => RentalListPage(
               id: '1',
                   isAirport: false,

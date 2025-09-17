@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/appUtils.dart';
-import 'package:jatri_app/src/widgets/status_widget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
 
 class DropAndPickupWidget extends StatefulWidget {

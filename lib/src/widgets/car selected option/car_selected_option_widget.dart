@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
@@ -31,8 +32,8 @@ class _CarSelectedOptionState extends State<CarSelectedOption> {
         padding: paddingH10,
         child: Row(
           children: [
-            Image.asset(
-              widget.carImg,
+            Image.network(
+              '${Urls.domain}/${widget.carImg}',
               height: 50,
             ),
             sizeW20,

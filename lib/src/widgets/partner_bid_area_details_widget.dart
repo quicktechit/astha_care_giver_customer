@@ -1,9 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:jatri_app/src/configs/appColors.dart';
-import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
 
 import 'partner_fee_widget.dart';

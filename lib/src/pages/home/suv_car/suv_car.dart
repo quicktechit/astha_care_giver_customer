@@ -1,13 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jatri_app/src/widgets/text/kText.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../configs/appBaseUrls.dart';
 import '../../../configs/appColors.dart';
 import '../../../controllers/home_controller/home_controller.dart';
-import '../../../widgets/button/primaryButton.dart';
 
 class SuvCars extends StatefulWidget {
   const SuvCars({super.key});

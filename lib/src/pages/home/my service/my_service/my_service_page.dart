@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import '../../../../configs/appColors.dart';
 import '../../../../controllers/rental trip history controller/rental_trip_history_controller.dart';
 import '../../../../widgets/trip history/all_trip_history.dart';
-import '../../../../widgets/trip history/cancel_trip_history.dart';
-import '../../../../widgets/trip history/confirm_trip_history_widget.dart';
 import '../../../../widgets/trip history/conplete_trip_history.dart';
 import '../../../../widgets/trip history/ongoing_trip_history.dart';
 import '../../../Trip History/trip_history_page.dart';
@@ -19,7 +17,6 @@ class MyServicePage extends StatefulWidget {
 
 class _MyServicePageState extends State<MyServicePage> with SingleTickerProviderStateMixin {
   late TabController tabController;
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final AllTripHistoryController controller =
   Get.put(AllTripHistoryController());
   final RentalTripHistoryController rentalTripHistoryController =

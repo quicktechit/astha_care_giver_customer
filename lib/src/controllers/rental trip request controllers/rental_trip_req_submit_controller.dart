@@ -9,7 +9,6 @@ import 'package:jatri_app/src/configs/local_storage.dart';
 import 'package:jatri_app/src/controllers/common_controller.dart';
 import 'package:jatri_app/src/widgets/quick_tech_loader_util.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../pages/live bidding/live_bidding_page.dart';
 
 class RentalTripSubmitController extends GetxController {
@@ -28,7 +27,7 @@ class RentalTripSubmitController extends GetxController {
 
   Future<bool> rentalFormSubmit({
     required String pickUpLocation,
-    required String category_id,
+    required String service_id,
     required String viaLocation,
     required String dropLocation,
     required String note,
@@ -54,15 +53,13 @@ class RentalTripSubmitController extends GetxController {
       var request = http.MultipartRequest('POST', Uri.parse(Urls.rentalTripSubmit));
       request.headers['Authorization'] = 'Bearer $token';
       request.fields['pickup_location'] = pickUpLocation;
-      request.fields['category_id'] = category_id;
-      request.fields['via_location'] = viaLocation;
+      request.fields['service_id'] = service_id;
       request.fields['dropoff_location'] = dropLocation;
       request.fields['datetime'] = dateTime;
       request.fields['map'] = map;
       request.fields['note'] = note;
       request.fields['round_trip'] = roundTrip;
       request.fields['round_datetime'] = roundTripTimeDate;
-      request.fields['vehicle_id'] = vehicleId;
       request.fields['promo_key'] = promoCode;
       request.fields['dropoff_map'] = dropMap;
 

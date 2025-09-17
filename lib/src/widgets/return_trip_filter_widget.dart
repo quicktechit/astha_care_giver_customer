@@ -1,5 +1,4 @@
 // custom_bottom_sheet.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,7 +9,6 @@ import 'package:jatri_app/src/controllers/car%20category%20controller/car_catego
 import 'package:jatri_app/src/controllers/division%20controller/division_controller.dart';
 import 'package:jatri_app/src/models/car_category_list_model.dart';
 import 'package:jatri_app/src/models/division_model.dart';
-import 'package:jatri_app/src/pages/home/return%20trip/return_trip_list_page.dart';
 import 'package:jatri_app/src/widgets/border_background_button.dart';
 import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/divider_widget.dart';

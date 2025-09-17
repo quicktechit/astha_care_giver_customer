@@ -1,6 +1,6 @@
 class Urls {
   /// base url
-  static const domain = "https://garilagbee.com";
+  static const domain = "https://asthacare.gariseba.com";
   static const baseUrl = "$domain/api/v1";
 
   static String getImageURL({required String endPoint}) => '$domain/public/$endPoint/';

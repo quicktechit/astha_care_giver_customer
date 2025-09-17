@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:jatri_app/src/controllers/distance_controller/distance_time_controller.dart';
-
 import '../../configs/appBaseUrls.dart';
 import '../../configs/appColors.dart';
 import '../../configs/appUtils.dart';
@@ -18,7 +17,6 @@ import '../../pages/single history trip details/single_history_trip_details.dart
 import '../../pages/single history trip details/single_return_trip_history_details.dart';
 import '../button/outlineButton.dart';
 import '../history_time_widget.dart';
-import '../status_widget.dart';
 import '../text/kText.dart';
 
 class CancelTripHistory extends StatelessWidget {

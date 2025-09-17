@@ -1,5 +1,3 @@
-import 'dart:developer';
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +5,6 @@ import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/widgets/custom_button_widget.dart';
 import 'package:jatri_app/src/widgets/text/custom_text_filed_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../configs/appBaseUrls.dart';
 import '../../../controllers/home_controller/home_controller.dart';

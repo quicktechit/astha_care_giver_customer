@@ -1,13 +1,13 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/configs/loader.dart';
 import 'package:jatri_app/src/controllers/car%20category%20controller/car_category_list_controller.dart';
 import 'package:jatri_app/src/controllers/language/langController.dart';
+import 'package:jatri_app/src/controllers/service%20controller/quick_tech_service_controller.dart';
 import 'package:jatri_app/src/pages/home/rental/rentalPointPage.dart';
 import 'package:jatri_app/src/widgets/card/customCardWidget.dart';
 import 'package:jatri_app/src/widgets/text/custom_text_filed_widget.dart';
@@ -41,7 +41,8 @@ class _RentalListPageState extends State<RentalListPage> {
       Get.put(CarCategoryController());
   final TecC = TextEditingController();
   final LangController langController = Get.find();
-  @override
+  final QuickTechServiceController servicesController = Get.find();
+/*  @override
   void initState() {
     // TODO: implement initState
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -50,7 +51,7 @@ class _RentalListPageState extends State<RentalListPage> {
     });
 
     super.initState();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -90,47 +91,46 @@ class _RentalListPageState extends State<RentalListPage> {
                     child: Column(
                       children: [
                         sizeH10,
-                        Expanded(
+                        Obx(() => Expanded(
                           child: GridView.builder(
                             padding: const EdgeInsets.only(top: 8),
                             gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
+                            SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2, // Number of columns
                               crossAxisSpacing: 10,
                               mainAxisSpacing: 10,
                               childAspectRatio: 1.2, // Adjust based on layout
                             ),
                             // itemCount: carCategoryController.carListData.length,
-                            itemCount: gridTitleList2.length,
+                            itemCount: servicesController.serviceData.value.data?.length,
                             itemBuilder: (context, i) {
-                              // final item = carCategoryController.carListData[i];
+                              final item = servicesController.serviceData.value.data?[i];
                               return GestureDetector(
                                 onTap: () {
                                   Get.to(
-                                    () => RentalPointPage(
-                                      // carImg: Urls.getImageURL(endPoint: item.image.toString()),
-                                      carImg: gridImageList[i],
-                                      carName: gridTitleList2[i],
+                                        () => RentalPointPage(
+                                      carImg: item?.image??'',
+                                      carName: item?.agencyType??'',
                                       capacity: '1',
                                       carId: i.toString(),
-                                      category_id: widget.id,
+                                      service_id: item?.id.toString()??''
                                     ),
                                   );
                                 },
                                 child: CustomCardWidget(
-                                  height: 100, // You can adjust this
+                                  height: 100,
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 5),
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      CrossAxisAlignment.center,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
-                                        Image.asset(
+                                        Image.network(
                                           // Urls.getImageURL(endPoint: item.image.toString()),
-                                          gridImageList[i],
+                                          '${Urls.domain}/${item?.image}',
                                           fit: BoxFit.fill,
                                           width: 60,
                                         ),
@@ -145,7 +145,7 @@ class _RentalListPageState extends State<RentalListPage> {
                                         // ),
                                         // SizedBox(width: 5),
                                         KText(
-                                          text: gridTitleList2[i],
+                                          text: item?.agencyType??'',
                                           // text: langController.selectedLang.value.languageCode == 'en'
                                           //     ? item.name.toString()
                                           //     : item.nameBn.toString(),
@@ -161,7 +161,7 @@ class _RentalListPageState extends State<RentalListPage> {
                               );
                             },
                           ),
-                        ),
+                        ),)
                       ],
                     ),
                   );

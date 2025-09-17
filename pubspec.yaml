@@ -50,6 +50,7 @@ dependencies:
   lottie:
   icons_launcher: ^2.1.7
   facebook_app_events: ^0.20.0
+  introduction_screen:
 #  flutter_launcher_icons: ^0.13.1
 #  archive: ^3.4.10
 icons_launcher:

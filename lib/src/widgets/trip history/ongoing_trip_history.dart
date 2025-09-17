@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 import '../../configs/appBaseUrls.dart';
 import '../../configs/appColors.dart';
 import '../../configs/appUtils.dart';
@@ -13,13 +12,12 @@ import '../../controllers/rental trip history controller/rental_trip_history_con
 import '../../models/all_trip_model.dart';
 import '../../pages/Trip History/map_page_view.dart';
 import '../../pages/home/rental/tripHistoryPage.dart';
-import '../../pages/live bidding/live_bidding_page.dart';
 import '../../pages/single history trip details/single_division_trip_history.dart';
 import '../../pages/single history trip details/single_history_trip_details.dart';
 import '../../pages/single history trip details/single_return_trip_history_details.dart';
 import '../button/outlineButton.dart';
 import '../history_time_widget.dart';
-import '../status_widget.dart';
+
 import '../text/kText.dart';
 
 class OngoingTripHistory extends StatelessWidget {

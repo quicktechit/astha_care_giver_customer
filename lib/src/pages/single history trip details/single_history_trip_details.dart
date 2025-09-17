@@ -38,10 +38,10 @@ class SingleHistoryTripDetailsPageState
               .toString() ??
           "";
       List<String>? parts = inputText.split(' ');
-      String? date = parts?[0];
+      String? date = parts[0];
       time = parts[1] + ' ' + parts[2];
-      List<String>? dateParts = date?.split('-');
-      formattedDate = '${dateParts?[2]}-${dateParts?[1]}-${dateParts?[0]}';
+      List<String>? dateParts = date.split('-');
+      formattedDate = '${dateParts[2]}-${dateParts[1]}-${dateParts[0]}';
     });
   }
 

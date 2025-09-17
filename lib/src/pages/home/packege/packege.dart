@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:jatri_app/src/configs/appBaseUrls.dart';
-import 'package:jatri_app/src/controllers/home_controller/home_controller.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
 import 'package:url_launcher/url_launcher.dart';
 

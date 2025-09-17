@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -11,18 +10,13 @@ import 'package:jatri_app/src/configs/empty_box_widget.dart';
 import 'package:jatri_app/src/configs/loader.dart';
 import 'package:jatri_app/src/controllers/rental%20trip%20history%20controller/rental_trip_history_controller.dart';
 import 'package:jatri_app/src/pages/home/rental/tripHistoryPage.dart';
-import 'package:jatri_app/src/pages/single%20history%20trip%20details/single_history_trip_details.dart';
 import 'package:jatri_app/src/widgets/history_time_widget.dart';
-import 'package:jatri_app/src/widgets/status_widget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
-
 import '../../controllers/distance_controller/distance_time_controller.dart';
 import '../../controllers/fixed_trip/fix_trip_controller.dart';
 import '../../controllers/home_controller/home_controller.dart';
 import '../../models/all_trip_model.dart';
 import '../../pages/Trip History/map_page_view.dart';
-import '../../pages/single history trip details/single_division_trip_history.dart';
-import '../../pages/single history trip details/single_return_trip_history_details.dart';
 import '../button/outlineButton.dart';
 
 class ConfirmTripHistory extends StatelessWidget {

@@ -2,10 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
-import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/loader.dart';
 import 'package:jatri_app/src/controllers/slider%20controller/slider_controller.dart';
-import 'package:jatri_app/src/models/slider_model.dart';
 
 import '../../configs/appList.dart';
 

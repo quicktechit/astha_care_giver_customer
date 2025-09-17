@@ -19,7 +19,7 @@ class NotificationsModel {
 
   Map<String, dynamic> toJson() => {
         "status": status,
-        "data": data!.map((x) => x?.toJson()).toList(),
+        "data": data!.map((x) => x.toJson()).toList(),
       };
 }
 

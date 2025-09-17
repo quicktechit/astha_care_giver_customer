@@ -8,12 +8,11 @@ import 'package:jatri_app/src/controllers/rental%20trip%20request%20controllers/
 import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/car%20selected%20option/car_selected_option_widget.dart';
 import 'package:jatri_app/src/widgets/custom_drop_and_pickup_point.dart';
-import 'package:jatri_app/src/widgets/text/custom_text_filed_widget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
 
 class TripDetailsPage extends StatefulWidget {
   final String carImg;
-  final String category_id;
+  final String service_id;
   final String carName;
   final String capacity;
   final String carId;
@@ -56,7 +55,7 @@ class TripDetailsPage extends StatefulWidget {
       required this.gender,
       required this.roundTripDetailsJourney,
       required this.dropOffMap,
-      required this.category_id,
+      required this.service_id,
       required this.note, });
 
   @override
@@ -103,20 +102,20 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
           child: primaryButton(
             buttonName: 'Send Request',
             onTap: () async {
-              // await _controller.rentalFormSubmit(
-              //   pickUpLocation: widget.pickUpPoint,
-              //   viaLocation: widget.viaPoint,
-              //   dropLocation: widget.dropPoint,
-              //   dateTime: widget.tripDetailsJourney,
-              //   map: widget.map,
-              //   roundTrip: widget.roundTrip,
-              //   promoCode: promoCode,
-              //   roundTripTimeDate: widget.roundTripDetailsJourney,
-              //   vehicleId: widget.carId,
-              //   dropMap: widget.dropOffMap,
-              //   category_id: widget.category_id,
-              //   note: widget.note,
-              // );
+              await _controller.rentalFormSubmit(
+                pickUpLocation: widget.pickUpPoint,
+                viaLocation: widget.viaPoint,
+                dropLocation: widget.dropPoint,
+                dateTime: widget.tripDetailsJourney,
+                map: widget.map,
+                roundTrip: widget.roundTrip,
+                promoCode: promoCode,
+                roundTripTimeDate: widget.roundTripDetailsJourney,
+                vehicleId: widget.carId,
+                dropMap: widget.dropOffMap,
+                service_id: widget.service_id,
+                note: widget.note,
+              );
 
             },
           ),

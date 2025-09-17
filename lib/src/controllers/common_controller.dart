@@ -1,10 +1,8 @@
 
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:jatri_app/src/models/status_model.dart';
 import 'package:jatri_app/src/pages/Trip%20History/trip_history_page.dart';
 import 'package:jatri_app/src/pages/home/homePage.dart';

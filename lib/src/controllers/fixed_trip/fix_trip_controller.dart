@@ -17,7 +17,7 @@ import '../rental trip request controllers/rental_trip_req_submit_controller.dar
 
 class QuickTechFixedTripController extends GetxController {
   final controller = Get.put(ProfileController());
-  RentalTripSubmitController rentalTripSubmitController = Get.find();
+  RentalTripSubmitController rentalTripSubmitController = Get.put(RentalTripSubmitController());
   var box=GetStorage();
   var isLoading = false.obs;
   var reasonListModel = ReasonListModel().obs;

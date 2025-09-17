@@ -1,15 +1,10 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
-import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/controllers/notification%20controller/notification_controller.dart';
 import 'package:jatri_app/src/pages/notification%20page/notification_page.dart';
-import 'package:jatri_app/src/pages/profile/profile_dashboard.dart';
-import 'package:jatri_app/src/widgets/text/kText.dart';
 
 class CustomCommonAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -28,8 +23,6 @@ class CustomCommonAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomCommonAppBarState extends State<CustomCommonAppBar> {
-  late Timer _timer;
-  DateTime _currentTime = DateTime.now();
   final NotificationController _notificationController =
       Get.put(NotificationController());
 

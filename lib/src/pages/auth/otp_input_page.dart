@@ -108,9 +108,9 @@ class _OtpInputPageState extends State<OtpInputPage> {
                           Get.snackbar('Sorry', 'OTP is required',
                               colorText: white,
                               backgroundColor: Colors.redAccent);
-                        } else if (otpController.text.length != 6) {
+                        } else if (otpController.text.length != 4) {
                           Get.snackbar(
-                              'Sorry', 'OTP Number must be 6 digits',
+                              'Sorry', 'OTP Number must be 4 digits',
                               colorText: white,
                               backgroundColor: Colors.redAccent);
                         } else {
@@ -206,7 +206,7 @@ class _OtpFormState extends State<OtpForm> {
 
   @override
   Widget build(BuildContext context) {
-    final length = 6;
+    final length = 4;
     const errorColor = Color.fromRGBO(255, 234, 238, 1);
     const fillColor = Color.fromARGB(255, 240, 240, 240);
     final defaultPinTheme = PinTheme(

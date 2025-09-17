@@ -5,8 +5,6 @@ import 'package:jatri_app/src/configs/appUtils.dart';
 import 'package:jatri_app/src/controllers/guide%20line/aboutus_controller.dart';
 import 'package:jatri_app/src/pages/guide%20line/faq_page.dart';
 import 'package:jatri_app/src/pages/guide%20line/how_use_app_page.dart';
-import 'package:jatri_app/src/pages/guide%20line/privacy_policy_page.dart';
-import 'package:jatri_app/src/pages/guide%20line/terms_condition_page.dart';
 import 'package:jatri_app/src/widgets/appbar/customAppbar.dart';
 import 'package:jatri_app/src/widgets/card/customCardWidget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';

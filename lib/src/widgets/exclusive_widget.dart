@@ -1,17 +1,13 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/appUtils.dart';
-import 'package:jatri_app/src/pages/home/exclusiveMenu/notificationsPage.dart';
 import 'package:jatri_app/src/pages/home/exclusiveMenu/offerPage.dart';
 import 'package:jatri_app/src/pages/home/exclusiveMenu/promoOfferPage.dart';
 import 'package:jatri_app/src/pages/notification%20page/notification_page.dart';
 import 'package:jatri_app/src/widgets/card/customCardWidget.dart';
-
 import 'package:flutter/material.dart';
 import 'package:jatri_app/src/widgets/exclusive_button_widget.dart';
-import 'package:jatri_app/src/widgets/text/kText.dart';
 
 class ExclusiveWidget extends StatefulWidget {
   const ExclusiveWidget({super.key});

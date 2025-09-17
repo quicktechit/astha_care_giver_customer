@@ -11,7 +11,6 @@ import '../../../widgets/date and time widget/date_time_widget.dart';
 import '../../../widgets/drop_point_widget.dart';
 import '../../../widgets/pick_up_location_widget.dart';
 import '../../../widgets/text/kText.dart';
-import '../../../widgets/via_location_widget.dart';
 
 class CorporateFormPage extends StatefulWidget {
   CorporateFormPage({super.key});

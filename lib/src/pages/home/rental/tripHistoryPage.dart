@@ -8,7 +8,6 @@ import 'package:jatri_app/src/configs/date_format.dart';
 import 'package:jatri_app/src/configs/loader.dart';
 import 'package:jatri_app/src/controllers/rental%20trip%20history%20controller/rental_trip_history_controller.dart';
 import 'package:jatri_app/src/models/rental_trip_history_model.dart';
-import 'package:jatri_app/src/pages/home/rental/rentalListPage.dart';
 import 'package:jatri_app/src/pages/single%20history%20trip%20details/single_history_trip_details.dart';
 import 'package:jatri_app/src/widgets/appbar/customAppbar.dart';
 import 'package:jatri_app/src/widgets/history_time_widget.dart';

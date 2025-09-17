@@ -1,4 +1,3 @@
-// ignore_for_file: unnecessary_brace_in_string_interps
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,6 @@ import 'package:jatri_app/src/pages/home/rental/tripDetailsPage.dart';
 import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/car%20selected%20option/car_selected_option_widget.dart';
 import 'package:jatri_app/src/widgets/date%20and%20time%20widget/date_time_widget.dart';
-import 'package:jatri_app/src/widgets/date%20and%20time%20widget/return_date_and_time_widget.dart';
 import 'package:jatri_app/src/widgets/note_controller.dart';
 import 'package:jatri_app/src/widgets/pick_up_location_widget.dart';
 import 'package:jatri_app/src/widgets/text/custom_text_filed_widget.dart';
@@ -25,7 +23,7 @@ class RentalPointPage extends StatefulWidget {
   final String carImg;
   final String carName;
   final String capacity;
-  final String category_id;
+  final String service_id;
   final String carId;
 
   RentalPointPage(
@@ -33,7 +31,7 @@ class RentalPointPage extends StatefulWidget {
       required this.carName,
       required this.capacity,
       required this.carId,
-      required this.category_id});
+      required this.service_id});
 
   @override
   State<RentalPointPage> createState() => _RentalPointPageState();
@@ -563,7 +561,33 @@ class _RentalPointPageState extends State<RentalPointPage> {
                                 colorText: white,
                                 backgroundColor: Colors.redAccent);
                             return;
-                          } else
+                          } else{
+                            Get.to(() => TripDetailsPage(
+                              carImg: widget.carImg,
+                              carName: widget.carName,
+                              capacity: widget.capacity,
+                              carId: widget.carId,
+                              pickUpPoint: locationController.pickUpLocation
+                                  .toString(),
+                              dropPoint:
+                              locationController.dropLocation.toString(),
+                              viaPoint:
+                              locationController.viaLocation.toString(),
+                              tripDetailsJourney: journeyTimeAndDate,
+                              roundTrip: roundTripValue.toString(),
+                              map: pickLatAndLang.toString(),
+                              roundTripDetailsJourney:
+                              returnJourneyTimeAndDate,
+                              dropOffMap: dropOfLatAndLang.toString(),
+                              service_id: widget.service_id,
+                              note: noteController.text,
+                              age: ageController.text.toString(),
+                              name: nameController.text.toString(),
+                              gender: _selectedGender.toString(),
+                              weeklyTime: returnWeeklyTimeAndDate,
+                              monthlyTime: returnMonthlyTimeAndDate, monthly: monthly, weekly: weekly, hourly: isHourly,
+                            ));
+                          }
                             // RentalFormCheckController().rentalForm(
                             //   pickUpLocation:
                             //       locationController.pickUpLocation.toString(),
@@ -578,31 +602,7 @@ class _RentalPointPageState extends State<RentalPointPage> {
                             //   vehicleId: widget.carId,
                             //   dropMap: dropOfLatAndLang, note: noteController.text,
                             // );
-                            Get.to(() => TripDetailsPage(
-                                  carImg: widget.carImg,
-                                carName: widget.carName,
-                                capacity: widget.capacity,
-                                carId: widget.carId,
-                                pickUpPoint: locationController.pickUpLocation
-                                    .toString(),
-                                dropPoint:
-                                    locationController.dropLocation.toString(),
-                                viaPoint:
-                                    locationController.viaLocation.toString(),
-                                tripDetailsJourney: journeyTimeAndDate,
-                                roundTrip: roundTripValue.toString(),
-                                map: pickLatAndLang.toString(),
-                                roundTripDetailsJourney:
-                                    returnJourneyTimeAndDate,
-                                dropOffMap: dropOfLatAndLang.toString(),
-                                  category_id: widget.category_id,
-                                  note: noteController.text,
-                                  age: ageController.text.toString(),
-                                  name: nameController.text.toString(),
-                                  gender: _selectedGender.toString(),
-                                  weeklyTime: returnWeeklyTimeAndDate,
-                                  monthlyTime: returnMonthlyTimeAndDate, monthly: monthly, weekly: weekly, hourly: isHourly,
-                                ));
+
                         },
                       ),
                     ),

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:jatri_app/src/configs/appTheme.dart';
 import 'package:jatri_app/src/pages/splash%20page/splashScreen.dart';
+import 'package:jatri_app/src/pages/splash%20page/splash_page.dart';
 import 'package:upgrader/upgrader.dart';
 import 'controllers/language/langController.dart';
 import 'localization/translation.dart';
@@ -35,7 +36,7 @@ class App extends StatelessWidget {
                 upgrader: Upgrader(
                   messages: CustomUpgraderMessages(),
                 ),
-                child: SplashScreen1(),
+                child: SplashScreen(),
               ),
               transition: Transition.zoom,
               transitionDuration: const Duration(milliseconds: 700),

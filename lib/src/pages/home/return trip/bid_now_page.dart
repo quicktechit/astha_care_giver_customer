@@ -1,27 +1,16 @@
 // ignore_for_file: unnecessary_null_comparison
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:jatri_app/src/components/drawer/sidebarComponent.dart';
-import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/appUtils.dart';
-import 'package:jatri_app/src/controllers/live%20location%20controller/live_location_controller.dart';
-import 'package:jatri_app/src/controllers/return%20trip%20controller/return_confirm_bid_controller.dart';
 import 'package:jatri_app/src/pages/Trip%20History/trip_history_page.dart';
 import 'package:jatri_app/src/pages/home/rental/tripHistoryPage.dart';
-import 'package:jatri_app/src/pages/home/return%20trip/return_bid_confirm.dart';
-import 'package:jatri_app/src/widgets/button/primaryButton.dart';
 import 'package:jatri_app/src/widgets/car_container_widget.dart';
-import 'package:jatri_app/src/widgets/custom%20app%20bar/app_bar_widget.dart';
-import 'package:jatri_app/src/widgets/drop_point_widget.dart';
 import 'package:jatri_app/src/widgets/history_time_widget.dart';
-import 'package:jatri_app/src/widgets/pick_up_location_widget.dart';
 import 'package:jatri_app/src/widgets/status_widget.dart';
-import 'package:jatri_app/src/widgets/text/custom_text_filed_widget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
 
 class ReturnTripBidNowPage extends StatefulWidget {
@@ -59,10 +48,7 @@ class ReturnTripBidNowPageState extends State<ReturnTripBidNowPage> {
   final RxString totalFare = ''.obs;
   int maxWords = 6;
 
-  final ReturnTripConfirmController _controller =
-      Get.put(ReturnTripConfirmController());
 
-  final LocationController _locationController = Get.put(LocationController());
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final AllTripHistoryController controller =
       Get.put(AllTripHistoryController());

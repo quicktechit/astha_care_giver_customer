@@ -6,6 +6,7 @@ import 'package:jatri_app/src/components/bottom%20navbar/bottom.dart';
 import 'package:jatri_app/src/configs/appColors.dart';
 import 'package:jatri_app/src/configs/local_storage.dart';
 import 'package:jatri_app/src/pages/auth/AuthStartVerifyPage.dart';
+import 'package:jatri_app/src/pages/auth/quick_tech_intro_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(Duration(seconds: 3), () {
       if (token == null) {
-        Get.to(() => AuthStartPage());
+        Get.to(() => IntroPage());
       } else {
         Get.offAll(() => DashboardView());
       }
