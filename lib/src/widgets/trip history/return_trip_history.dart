@@ -36,10 +36,10 @@ class ReturnTripHistory extends StatelessWidget {
                   final ReturnData item = _controller.returnData[index];
                   return InkWell(
                     onTap: (){
-                      Get.to(() => SingleReturnHistoryTripDetailsPage(
-                        tripId: item.id.toString(),
-                      ));
-                      print("Trip ID============================${item.id.toString()}");
+                      // Get.to(() => SingleReturnHistoryTripDetailsPage(
+                      //   tripId: item.id.toString(),
+                      // ));
+                      // print("Trip ID============================${item.id.toString()}");
 
                     },
                     child: Container(

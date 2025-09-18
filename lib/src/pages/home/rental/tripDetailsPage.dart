@@ -103,20 +103,22 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
             buttonName: 'Send Request',
             onTap: () async {
               await _controller.rentalFormSubmit(
-                pickUpLocation: widget.pickUpPoint,
-                viaLocation: widget.viaPoint,
-                dropLocation: widget.dropPoint,
-                dateTime: widget.tripDetailsJourney,
-                map: widget.map,
-                roundTrip: widget.roundTrip,
-                promoCode: promoCode,
-                roundTripTimeDate: widget.roundTripDetailsJourney,
-                vehicleId: widget.carId,
-                dropMap: widget.dropOffMap,
-                service_id: widget.service_id,
+                pickupLocation: widget.pickUpPoint,
+                datetime: widget.tripDetailsJourney,
                 note: widget.note,
+                map: widget.map,
+                name: widget.name,
+                gender: widget.gender,
+                age: widget.age,
+                serviceId: widget.service_id,
+                isDaily: widget.roundTrip,
+                days: "1",
+                isWeekly: widget.weekly == false ? "0" : "1",
+                weeks: "1",
+                isMonthly: widget.monthly == false ? "0" : "1",
+                months: "1",
+                isHourly: widget.hourly == false ? "0" : "1", hour: '1',
               );
-
             },
           ),
         ),
@@ -287,99 +289,6 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
               ),
             ),
           ),
-          // sizeH5,
-          // Container(
-          //   color: white,
-          //   child: Padding(
-          //     padding: EdgeInsets.symmetric(
-          //       horizontal: 10,
-          //       vertical: 15,
-          //     ),
-          //     child: Row(
-          //       children: [
-          //         KText(
-          //           text: 'noPromoAdded',
-          //           fontSize: 12,
-          //           color: black54,
-          //           fontWeight: FontWeight.w600,
-          //         ),
-          //         Spacer(),
-          //         GestureDetector(
-          //           onTap: () {
-          //             showDialog(
-          //               context: context,
-          //               builder: (BuildContext context) {
-          //                 return AlertDialog(
-          //                   title: Text('Add Promo Code'),
-          //                   content: Container(
-          //                     width: 300.w,
-          //                     height: 100,
-          //                     child: Column(
-          //                       mainAxisAlignment: MainAxisAlignment.center,
-          //                       crossAxisAlignment: CrossAxisAlignment.center,
-          //                       children: [
-          //                         CustomTextFieldWithIcon(
-          //                           label: 'Add Promo',
-          //                           icon: Icons.password,
-          //                           controller: addPromoController,
-          //                           hinttext: "Promo Code ",
-          //                         )
-          //                       ],
-          //                     ),
-          //                   ),
-          //                   actions: [
-          //                     ElevatedButton(
-          //                       onPressed: () {
-          //                         Navigator.of(context).pop();
-          //                       },
-          //                       child: Text('Close'),
-          //                     ),
-          //                     ElevatedButton(
-          //                       onPressed: () {
-          //                         setState(() {
-          //                           promoCode = addPromoController.text;
-          //                         });
-          //                         Navigator.of(context).pop();
-          //                       },
-          //                       child: Text('Apply'),
-          //                     ),
-          //                   ],
-          //                 );
-          //               },
-          //             );
-          //           },
-          //           child: Container(
-          //             decoration: BoxDecoration(
-          //               color: Colors.blue.shade50,
-          //               borderRadius: BorderRadius.circular(30),
-          //             ),
-          //             child: Padding(
-          //               padding: EdgeInsets.symmetric(
-          //                 horizontal: 10,
-          //                 vertical: 5,
-          //               ),
-          //               child: Row(
-          //                 children: [
-          //                   Icon(
-          //                     Icons.add,
-          //                     size: 20,
-          //                     color: Colors.blue,
-          //                   ),
-          //                   KText(
-          //                     text: 'addPromoCode',
-          //                     fontWeight: FontWeight.w600,
-          //                     fontSize: 14,
-          //                     color: Colors.blue,
-          //                   ),
-          //                 ],
-          //               ),
-          //             ),
-          //           ),
-          //         )
-          //       ],
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

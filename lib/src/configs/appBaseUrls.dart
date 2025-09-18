@@ -3,7 +3,7 @@ class Urls {
   static const domain = "https://asthacare.gariseba.com";
   static const baseUrl = "$domain/api/v1";
 
-  static String getImageURL({required String endPoint}) => '$domain/public/$endPoint/';
+  static String getImageURL({required String endPoint}) => '$domain/$endPoint/';
 
   static String registration = "$baseUrl/customer/register";
   static String login = "$baseUrl/customer/login";

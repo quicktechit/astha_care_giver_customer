@@ -8,13 +8,18 @@ import 'package:jatri_app/src/widgets/text/kText.dart';
 class CarSelectedOption extends StatefulWidget {
   final String carImg;
   final String carName;
-  // final String capacity;
+
+  final String? agency;
+  final String? age;
+  final String? type;
 
   const CarSelectedOption({
     super.key,
     required this.carImg,
     required this.carName,
-    // required this.capacity,
+    this.type,
+    this.age,
+    this.agency,
   });
 
   @override
@@ -25,7 +30,7 @@ class _CarSelectedOptionState extends State<CarSelectedOption> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      padding: EdgeInsets.symmetric(vertical: 10),
       width: Get.width,
       color: white,
       child: Padding(
@@ -43,17 +48,31 @@ class _CarSelectedOptionState extends State<CarSelectedOption> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  if(widget.agency!=null)
+                    KText(
+                      text: "${widget.agency}",
+                      fontSize: 16,
+
+                      fontWeight: FontWeight.bold,
+                    ),
                   KText(
                     text: widget.carName,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
+                  if(widget.age!=null)
+                    KText(
+                      text: "${widget.age}",
+                      fontSize: 14,
+                      color: black45,
+                    ),
                   SizedBox(height: 3),
-                  // KText(
-                  //   text: widget.capacity,
-                  //   fontSize: 14,
-                  //   color: black45,
-                  // ),
+                  if(widget.type!=null)
+                  KText(
+                    text: "${widget.type}",
+                    fontSize: 14,
+                    color: black45,
+                  ),
                 ],
               ),
             ),

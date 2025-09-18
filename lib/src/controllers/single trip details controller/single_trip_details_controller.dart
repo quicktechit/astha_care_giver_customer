@@ -5,13 +5,13 @@ import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/base_client.dart';
 import 'package:jatri_app/src/configs/local_storage.dart';
 import 'package:http/http.dart' as http;
-import 'package:jatri_app/src/models/single_trip_details_model.dart';
+import 'package:jatri_app/src/models/single_service_details_model.dart';
 
 import '../../models/single_division_trip_model.dart';
 
 class SingleTripDetailsController extends GetxController {
   var isLoading = false.obs;
-  var singleTripDetailsModel = SingleTripDetailsModel().obs;
+  var singleTripDetailsModel = SingleServiceModel().obs;
   var singleDivisionTripDetailsModel = SingleDivisionTripDetailsModel().obs;
 
   @override
@@ -46,8 +46,7 @@ class SingleTripDetailsController extends GetxController {
       if (response.statusCode == 200) {
         dynamic responseBody = await BaseClient.handleResponse(response);
         singleTripDetailsModel.value =
-            SingleTripDetailsModel.fromJson(responseBody);
-        print("-------------------${singleTripDetailsModel.value.data?.driver?.name.toString()}--------------");
+            SingleServiceModel.fromJson(responseBody);
         print(responseBody);
       } else {
         throw 'Request failed with status: ${response.statusCode}';

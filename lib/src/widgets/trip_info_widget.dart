@@ -22,7 +22,7 @@ class TripInfoWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             KText(
-              text: "Trip Info:",
+              text: "Service Info:",
               fontWeight: FontWeight.bold,
               fontSize: 15.h,
             ),
@@ -79,39 +79,39 @@ class TripInfoWidget extends StatelessWidget {
                             ],
                           ),
                           sizeH5,
-                          Padding(
-                            padding:
-                            EdgeInsets.fromLTRB(12.h, 0, 12.h, 0),
-                            child: Container(
-                              height: 15,
-                              width: 1,
-                              color: grey,
-                            ),
-                          ),
-                          sizeH5,
-                          Row(
-                            children: [
-                              Image.asset(
-                                "assets/images/map.png",
-                                scale: 20.h,
-                              ),
-                              SizedBox(
-                                width: 3.h,
-                              ),
-                              Expanded(
-                                child: Text(
-                                  drop,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize: 12.h,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          sizeH5,
+                          // Padding(
+                          //   padding:
+                          //   EdgeInsets.fromLTRB(12.h, 0, 12.h, 0),
+                          //   child: Container(
+                          //     height: 15,
+                          //     width: 1,
+                          //     color: grey,
+                          //   ),
+                          // ),
+                          // sizeH5,
+                          // Row(
+                          //   children: [
+                          //     Image.asset(
+                          //       "assets/images/map.png",
+                          //       scale: 20.h,
+                          //     ),
+                          //     SizedBox(
+                          //       width: 3.h,
+                          //     ),
+                          //     Expanded(
+                          //       child: Text(
+                          //         drop,
+                          //         maxLines: 1,
+                          //         overflow: TextOverflow.ellipsis,
+                          //         style: TextStyle(
+                          //           fontSize: 12.h,
+                          //           fontWeight: FontWeight.w600,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ],
+                          // ),
+                          // sizeH5,
                         ],
                       ),
                     ),

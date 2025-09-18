@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
             sizeH20,
             Obx(() {
               if(commonController.data.value.data?.status==1){
-                return  primaryButton(buttonName: "You Have an Ongoing Trip", onTap: (){
+                return  primaryButton(buttonName: "You Have an Ongoing Service", onTap: (){
                   Get.to(()=>LiveBiddingPage());
                 }).animate(
                   onPlay: (controller) => controller.repeat(),

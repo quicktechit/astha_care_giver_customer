@@ -15,7 +15,6 @@ import 'package:jatri_app/src/controllers/rental%20trip%20request%20controllers/
 import 'package:jatri_app/src/controllers/single%20trip%20details%20controller/single_trip_details_controller.dart';
 import 'package:jatri_app/src/controllers/trip_expired_sms/trip_expired_controller.dart';
 import 'package:jatri_app/src/models/live_bidding_model.dart';
-import 'package:jatri_app/src/pages/live%20bidding/bidding_confirm_screen.dart';
 import 'package:jatri_app/src/widgets/car_live_bidding_widget.dart';
 import 'package:jatri_app/src/widgets/divider_widget.dart';
 import 'package:jatri_app/src/widgets/slider/slider_widget.dart';
@@ -268,7 +267,7 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                           Get.find<CommonController>().getCustomerStatus(0);
                           _rentalTripSubmitController.liveBidStart.value=false;
                           box.write("liveBidStart",false);
-Get.offAll(DashboardView());
+                          Get.offAll(DashboardView());
                           // Get.to(() => LiveBiddingConfirmScreen(
                           //     rentalBidConfirm: confirmController
                           //           .bidConfirmModel.value.data!,

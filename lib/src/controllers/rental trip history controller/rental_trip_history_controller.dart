@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:jatri_app/src/components/bottom%20navbar/bottom.dart';
 import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/base_client.dart';
-import 'package:jatri_app/src/models/all_trip_model.dart';
+import 'package:jatri_app/src/models/all_service_model.dart';
 import 'package:jatri_app/src/models/rental_trip_history_model.dart';
 
 import '../../configs/local_storage.dart';
@@ -30,11 +30,11 @@ class RentalTripHistoryController extends GetxController {
   var returnTripCompleteHistory = <ReturnTripCompleteHistory>[].obs;
   var returnTripStartHistory = <ReturnTripStartHistory>[].obs;
   var returnTripConfirmHistory = <ReturnTripConfirmHistory>[].obs;
-  var allSortingTripHistoryData = SortingAllTripModel().obs;
-  var allConfirmSortingTripHistoryData = SortingAllTripModel().obs;
-  var allStartSortingTripHistoryData = SortingAllTripModel().obs;
-  var allCompleteSortingTripHistoryData = SortingAllTripModel().obs;
-  var allCancelSortingTripHistoryData = SortingAllTripModel().obs;
+  var allSortingTripHistoryData = AllServiceModel().obs;
+  var allConfirmSortingTripHistoryData = AllServiceModel().obs;
+  var allStartSortingTripHistoryData = AllServiceModel().obs;
+  var allCompleteSortingTripHistoryData = AllServiceModel().obs;
+  var allCancelSortingTripHistoryData = AllServiceModel().obs;
 
   @override
   void onInit() async {
@@ -184,15 +184,15 @@ log("message");
       String responseBody = await response.stream.bytesToString();
       debugPrint('Response body: $responseBody');
 
-      try {
+      // try {
         var jsonData = jsonDecode(responseBody);
         debugPrint('Decoded JSON: $jsonData');
-        allSortingTripHistoryData.value = SortingAllTripModel.fromJson(jsonData);
+        allSortingTripHistoryData.value = AllServiceModel.fromJson(jsonData);
 
         debugPrint('success ::: all trip');
-      } catch (e) {
-        debugPrint('Error decoding JSON: $e');
-      }
+      // } catch (e) {
+      //   debugPrint('Error decoding JSON: $e');
+      // }
     } else {
       debugPrint('failed :: all trip');
     }
@@ -218,7 +218,7 @@ log("message");
       try {
         var jsonData = jsonDecode(responseBody);
         debugPrint('Decoded JSON: $jsonData');
-        allConfirmSortingTripHistoryData.value = SortingAllTripModel.fromJson(jsonData);
+        allConfirmSortingTripHistoryData.value = AllServiceModel.fromJson(jsonData);
 
         debugPrint('success ::: all trip');
       } catch (e) {
@@ -249,7 +249,7 @@ log("message");
       try {
         var jsonData = jsonDecode(responseBody);
         debugPrint('Decoded JSON: $jsonData');
-        allStartSortingTripHistoryData.value = SortingAllTripModel.fromJson(jsonData);
+        allStartSortingTripHistoryData.value = AllServiceModel.fromJson(jsonData);
 
         debugPrint('success ::: all trip');
       } catch (e) {
@@ -280,7 +280,7 @@ log("message");
       try {
         var jsonData = jsonDecode(responseBody);
         debugPrint('Decoded JSON: $jsonData');
-        allCompleteSortingTripHistoryData.value = SortingAllTripModel.fromJson(jsonData);
+        allCompleteSortingTripHistoryData.value = AllServiceModel.fromJson(jsonData);
 
         debugPrint('success ::: all trip');
       } catch (e) {
@@ -311,7 +311,7 @@ log("message");
       try {
         var jsonData = jsonDecode(responseBody);
         debugPrint('Decoded JSON: $jsonData');
-        allCancelSortingTripHistoryData.value = SortingAllTripModel.fromJson(jsonData);
+        allCancelSortingTripHistoryData.value = AllServiceModel.fromJson(jsonData);
 
         debugPrint('success ::: all trip');
       } catch (e) {
