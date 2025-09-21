@@ -157,24 +157,24 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                         BorderRadius.circular(10), // Set the round border radius
                   ),
                 ),
-                10.verticalSpace,
-                ListTile(
-                  dense: true,
-                  leading: Image.asset(
-                    "assets/images/notification.png",
-                    scale: 19,
-                  ),
-                  title: Text('notifications'.tr),
-                  onTap: () {
-                    Get.to(() => NotificationsPage());
-                  },
-                  tileColor: Colors.blue.shade50,
-                  // Set the background color for the tile
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(10), // Set the round border radius
-                  ),
-                ),
+                // 10.verticalSpace,
+                // ListTile(
+                //   dense: true,
+                //   leading: Image.asset(
+                //     "assets/images/notification.png",
+                //     scale: 19,
+                //   ),
+                //   title: Text('notifications'.tr),
+                //   onTap: () {
+                //     Get.to(() => NotificationsPage());
+                //   },
+                //   tileColor: Colors.blue.shade50,
+                //   // Set the background color for the tile
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius:
+                //         BorderRadius.circular(10), // Set the round border radius
+                //   ),
+                // ),
                 // 10.verticalSpace,
                 // ListTile(
                 //   dense: true,

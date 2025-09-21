@@ -52,8 +52,8 @@ class RegistrationController extends GetxController {
            }
 
             /// show snakbar msg
-            Get.snackbar('Success', 'OTP Send Successfully',
-                duration: Duration(seconds: 10),
+            Get.snackbar('Success', 'OTP Send Successfully: ${otp.value}',
+                duration: Duration(seconds: 30),
                 colorText: white, backgroundColor: Colors.black);
           } else {
             throw 'Registration Failed: ${responseBody['message']}';

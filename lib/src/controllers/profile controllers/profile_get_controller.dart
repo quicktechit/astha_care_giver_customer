@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:jatri_app/src/configs/appBaseUrls.dart';
 import 'package:jatri_app/src/configs/base_client.dart';
@@ -30,8 +31,7 @@ class ProfileController extends GetxController {
       isLoading(true);
 
       dynamic responseBody = await BaseClient.handleResponse(
-        await BaseClient.getRequest(
-            api: Urls.profile(userToken: token.toString())),
+        await BaseClient.getRequest(api: Urls.profile()),
       );
 
       if (responseBody != null) {

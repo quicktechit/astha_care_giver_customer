@@ -18,8 +18,8 @@ class Urls {
   static String drivingTrainingSubmit = "$baseUrl/customer/driver-training-submit";
   static String drivingTrainingList = "$baseUrl/customer/driver-training-list";
 
-  static String profile({required String userToken}) =>
-      "$baseUrl/customer/profile?token=$userToken";
+  static String profile({String? userToken}) =>
+      "$baseUrl/customer/profile";
   static String editProfile = "$baseUrl/customer/profile-update";
   static String carList = "$baseUrl/customer/category/";
   static String rentalTripHistory = "$baseUrl/customer/return-trip-history";

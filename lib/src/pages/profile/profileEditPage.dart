@@ -130,7 +130,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 children: [
                   Expanded(
                     child: CustomForm(
-                      title: 'fullName',
+                      title: 'fullName'.tr,
                       requiredStar: '*',
                       controller: firstNameTextC!,
                     ),

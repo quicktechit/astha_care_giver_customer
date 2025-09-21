@@ -71,94 +71,99 @@ class _RentalListPageState extends State<RentalListPage> {
           style: TextStyle(color: Colors.white, fontSize: 17.h),
         ),
       ),
-      body: Column(
-        children: [
-          CustomTextFieldWithIcon(
+      body: RefreshIndicator(
+        onRefresh: (() async {
+          await servicesController.getServices();
+        }),
+        child: Column(
+          children: [
+            CustomTextFieldWithIcon(
 
-              icon: Icons.search,
-              onChanged: (value) {
-                servicesController.searchByAgencyType(value);
-              },
-              controller: TecC,
-              hinttext: "Fiend Your Service").paddingSymmetric(horizontal: 10),
-          Expanded(
-            child: Obx(
-              () {
-                if (servicesController.isLoading.value) {
-                  return Center(
-                    child: loader(),
-                  );
-                } else {
-                  return Padding(
-                    padding: paddingH10,
-                    child: Column(
-                      children: [
-                        sizeH10,
-                        Obx(() => Expanded(
-                          child: GridView.builder(
-                            padding: const EdgeInsets.only(top: 8),
-                            gridDelegate:
-                            SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2, // Number of columns
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10,
-                              childAspectRatio: 1.2, // Adjust based on layout
-                            ),
-                            // itemCount: carCategoryController.carListData.length,
-                            itemCount: servicesController.filteredList.value.length,
-                            itemBuilder: (context, i) {
-                              final item = servicesController.filteredList[i];
-                              return GestureDetector(
-                                onTap: () {
-                                  Get.to(
-                                        () => RentalPointPage(
-                                      carImg: item.image??'',
-                                      carName: item.agencyType??'',
-                                      capacity: '1',
-                                      carId: i.toString(),
-                                      service_id: item.id.toString()??''
-                                    ),
-                                  );
-                                },
-                                child: CustomCardWidget(
-                                  height: 100,
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 5),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                      children: [
-                                        Image.network(
-                                          '${Urls.domain}/${item.image}',
-                                          fit: BoxFit.fill,
-                                          width: 60,
-                                        ),
-                                        KText(
-                                          text: item.agencyType??'',
-                                          fontSize: 15,
-                                          textAlign: TextAlign.center,
-                                          fontWeight: FontWeight.w600,
-                                          maxLines: 2,
-                                        ),
-                                      ],
+                icon: Icons.search,
+                onChanged: (value) {
+                  servicesController.searchByAgencyType(value);
+                },
+                controller: TecC,
+                hinttext: "Fiend Your Service").paddingSymmetric(horizontal: 10),
+            Expanded(
+              child: Obx(
+                () {
+                  if (servicesController.isLoading.value) {
+                    return Center(
+                      child: loader(),
+                    );
+                  } else {
+                    return Padding(
+                      padding: paddingH10,
+                      child: Column(
+                        children: [
+                          sizeH10,
+                          Obx(() => Expanded(
+                            child: GridView.builder(
+                              padding: const EdgeInsets.only(top: 8),
+                              gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2, // Number of columns
+                                crossAxisSpacing: 10,
+                                mainAxisSpacing: 10,
+                                childAspectRatio: 1.2, // Adjust based on layout
+                              ),
+                              // itemCount: carCategoryController.carListData.length,
+                              itemCount: servicesController.filteredList.value.length,
+                              itemBuilder: (context, i) {
+                                final item = servicesController.filteredList[i];
+                                return GestureDetector(
+                                  onTap: () {
+                                    Get.to(
+                                          () => RentalPointPage(
+                                        carImg: item.image??'',
+                                        carName: item.agencyType??'',
+                                        capacity: '1',
+                                        carId: i.toString(),
+                                        service_id: item.id.toString()??''
+                                      ),
+                                    );
+                                  },
+                                  child: CustomCardWidget(
+                                    height: 100,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 5),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        children: [
+                                          Image.network(
+                                            '${Urls.domain}/${item.image}',
+                                            fit: BoxFit.fill,
+                                            width: 60,
+                                          ),
+                                          KText(
+                                            text: item.agencyType??'',
+                                            fontSize: 15,
+                                            textAlign: TextAlign.center,
+                                            fontWeight: FontWeight.w600,
+                                            maxLines: 2,
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),)
-                      ],
-                    ),
-                  );
-                }
-              },
+                                );
+                              },
+                            ),
+                          ),)
+                        ],
+                      ),
+                    );
+                  }
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

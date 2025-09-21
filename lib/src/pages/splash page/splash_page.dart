@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: white,
       body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
             Image.asset(
@@ -50,12 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
               width: context.width / 1.5,
             ),
 
-            // loader(),
-            // SizedBox(height: 5.h),
-            // Text(
-            //   'Waiting.......',
-            //   style: TextStyle(color: white),
-            // ),
+
             SizedBox(height: 46.h),
           ],
         ),

@@ -112,6 +112,7 @@ class Translation extends Translations {
        'fromHome': "From Home",
       'ambulance':'Ambulance',
       'return':'Return Trip',
+      'fullName': 'Full Name',
       "Critical Care":"Critical Care",
       'bid':'Bid now',
           "Luxury Car": "Luxury Car",
