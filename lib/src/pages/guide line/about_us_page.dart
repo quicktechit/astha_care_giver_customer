@@ -31,24 +31,22 @@ class _AboutUsState extends State<AboutUs> {
                   height: 125.h,
                   width: Get.width,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Colors.white,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30),
                     ),
+                    boxShadow:[
+                      BoxShadow(color:Colors.black.withOpacity(0.4),blurRadius:2,spreadRadius: 1),
+                      BoxShadow(color:Colors.white.withOpacity(0.4),blurRadius:2,spreadRadius: 1)
+                    ]
                   ),
                 ),
                 Positioned(
-                  top: 50.h,
+                  top: 15,
                   left: 0,
                   right: 0,
-                  child: Center(
-                    child: CircleAvatar(
-                      radius: 60,
-                      backgroundImage:
-                          AssetImage('assets/icons/Gari-Lagbee-icon.png'),
-                    ),
-                  ),
+                  child:Image.asset('assets/icons/Gari-Lagbee-icon.png'),
                 ),
                 SizedBox(height: 30.h),
                 Padding(

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -29,24 +30,22 @@ class FaqPageState extends State<FaqPage> {
                 height: 125.h,
                 width: Get.width,
                 decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  ),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                    ),
+                    boxShadow:[
+                      BoxShadow(color:Colors.black.withOpacity(0.4),blurRadius:2,spreadRadius: 1),
+                      BoxShadow(color:Colors.white.withOpacity(0.4),blurRadius:2,spreadRadius: 1)
+                    ]
                 ),
               ),
               Positioned(
-                top: 50.h,
+                top: 15,
                 left: 0,
                 right: 0,
-                child: Center(
-                  child: CircleAvatar(
-                    radius: 60,
-                    backgroundImage:
-                    AssetImage('assets/icons/Gari-Lagbee-icon.png'),
-                  ),
-                ),
+                child:Image.asset('assets/icons/Gari-Lagbee-icon.png'),
               ),
               SizedBox(height: 30.h),
               Padding(
@@ -62,9 +61,9 @@ class FaqPageState extends State<FaqPage> {
                       fontSize: 19.h,
                     ),
                     SizedBox(height: 15.h),
-                    SizedBox(
-                      height: 399.h,
+                    Flexible(
                       child: ListView.builder(
+                        shrinkWrap: true,
                         itemCount: aboutUsController.faq.length,
                         itemBuilder: (BuildContext context, index) {
                           Faq faqData = aboutUsController.faq[index];

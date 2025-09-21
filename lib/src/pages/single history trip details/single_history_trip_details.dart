@@ -96,17 +96,17 @@ class SingleHistoryTripDetailsPageState
                                 ?.name
                                 .toString() ??
                             '',
-                        age: data?.age,
+                        age: "Age: ${ data?.age}",
                         agency: data?.agencyService?.agencyType.toString(),
-                        type: data?.isHourly != null
+                        type: "Service Provided: ${data?.isHourly != 0
                             ? "Hourly"
-                            : data?.isDaily != null
-                                ? "Daily"
-                                : data?.isWeekly != null
-                                    ? "Weekly"
-                                    : data?.isMonthly != null
-                                        ? "Monthly"
-                                        : null,
+                            : data?.isDaily != 0
+                            ? "Daily"
+                            : data?.isWeekly != 0
+                            ? "Weekly"
+                            : data?.isMonthly != 0
+                            ? "Monthly"
+                            : ''}",
                       ),
                       SizedBox(height: 20.h),
                       PartnerInfoWidget(
@@ -151,7 +151,7 @@ class SingleHistoryTripDetailsPageState
                       ),
                       SizedBox(height: 20.h),
                       SingleTripHistoryWidget(
-                        title: 'Journey OTP :',
+                        title: 'Service OTP :',
                     subTitle: _singleTripDetailsController
                                 .singleTripDetailsModel
                                 .value

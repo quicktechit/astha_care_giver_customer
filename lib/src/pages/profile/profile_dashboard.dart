@@ -11,6 +11,10 @@ import '../../controllers/profile controllers/profile_get_controller.dart';
 import '../../widgets/lang/langWidget.dart';
 import '../../widgets/text/kText.dart';
 import '../auth/AuthStartVerifyPage.dart';
+import '../guide line/about_us_page.dart';
+import '../guide line/privacy_policy_page.dart';
+import '../guide line/terms_condition_page.dart';
+import '../help/helpPage.dart';
 import '../notification page/notification_page.dart';
 
 class ProfileDashboard extends StatefulWidget {
@@ -108,7 +112,7 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                   ),
                   title: Text('aboutUs'.tr),
                   onTap: () {
-                    // Get.to(() => AboutUs());
+                    Get.to(() => AboutUs());
                   },
                   tileColor: Colors.blue.shade50,
                   // Set the background color for the tile
@@ -144,7 +148,7 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                   ),
                   title: Text('help'.tr),
                   onTap: () {
-                    // Get.to(() => HelpPage());
+                    Get.to(() => HelpPage());
                   },
                   tileColor: Colors.blue.shade50,
                   // Set the background color for the tile
@@ -198,7 +202,7 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                   ),
                   title: Text('Terms & Conditions'.tr),
                   onTap: () {
-                    // Get.to(() => TermsAndCondition());
+                    Get.to(() => TermsAndCondition());
                   },
                   tileColor: Colors.blue.shade50,
                   // Set the background color for the tile
@@ -216,7 +220,7 @@ class _ProfileDashboardState extends State<ProfileDashboard> {
                   ),
                   title: Text('Privacy Policy'.tr),
                   onTap: () {
-                    // Get.to(() => PrivacyPolicy());
+                    Get.to(() => PrivacyPolicy());
                   },
                   tileColor: Colors.blue.shade50,
                   // Set the background color for the tile

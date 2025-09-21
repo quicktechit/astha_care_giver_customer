@@ -20,7 +20,7 @@ class TripDetailsPage extends StatefulWidget {
   final String dropPoint;
   final String viaPoint;
   final String note;
-  final String roundTrip;
+  final bool roundTrip;
   final bool monthly;
   final bool weekly;
   final bool hourly;
@@ -111,7 +111,7 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
                 gender: widget.gender,
                 age: widget.age,
                 serviceId: widget.service_id,
-                isDaily: widget.roundTrip,
+                isDaily: widget.roundTrip==false?'0':'1',
                 days: "1",
                 isWeekly: widget.weekly == false ? "0" : "1",
                 weeks: "1",
@@ -217,7 +217,7 @@ class _TripDetailsPageState extends State<TripDetailsPage> {
                       ),
                       sizeH5,
                       KText(
-                        text: widget.roundTrip == "0" ? 'No' : 'Yes',
+                        text:widget.roundTrip==false ? 'No' : 'Yes',
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       )

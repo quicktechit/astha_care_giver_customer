@@ -19,11 +19,10 @@ class NotificationCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
       child: Container(
-        height: 92.h,
         padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(10.0),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),

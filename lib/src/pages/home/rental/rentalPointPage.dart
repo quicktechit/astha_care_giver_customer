@@ -574,7 +574,7 @@ class _RentalPointPageState extends State<RentalPointPage> {
                               viaPoint:
                               locationController.viaLocation.toString(),
                               tripDetailsJourney: journeyTimeAndDate,
-                              roundTrip: roundTripValue.toString(),
+                              roundTrip: daily,
                               map: pickLatAndLang.toString(),
                               roundTripDetailsJourney:
                               returnJourneyTimeAndDate,

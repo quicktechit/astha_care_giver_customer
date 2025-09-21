@@ -178,11 +178,11 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           GestureDetector(
                               onTap: () async {
-                                final Uri url = Uri.parse(
-                                    'https://www.facebook.com/share/1Lg9wSxWcE/');
-                                if (!await launchUrl(url)) {
-                                  throw Exception('Could not launch $url');
-                                }
+                                // final Uri url = Uri.parse(
+                                //     'https://www.facebook.com/share/1Lg9wSxWcE/');
+                                // if (!await launchUrl(url)) {
+                                //   throw Exception('Could not launch $url');
+                                // }
                               },
                               child: Image.asset(
                                 "assets/animations/facebook (1).png",
@@ -191,11 +191,11 @@ class ProfilePage extends StatelessWidget {
                           20.horizontalSpace,
                           GestureDetector(
                               onTap: () async {
-                                final Uri url = Uri.parse(
-                                    'https://youtube.com/shorts/dKk795svetw?si=PJHarCb-ahuxaD_g');
-                                if (!await launchUrl(url)) {
-                                  throw Exception('Could not launch $url');
-                                }
+                                // final Uri url = Uri.parse(
+                                //     'https://youtube.com/shorts/dKk795svetw?si=PJHarCb-ahuxaD_g');
+                                // if (!await launchUrl(url)) {
+                                //   throw Exception('Could not launch $url');
+                                // }
                               },
                               child: Image.asset(
                                 "assets/animations/youtube (1).png",
@@ -204,11 +204,11 @@ class ProfilePage extends StatelessWidget {
                           20.horizontalSpace,
                           GestureDetector(
                               onTap: () async {
-                                final Uri url =
-                                    Uri.parse('https://pickupvara.com/');
-                                if (!await launchUrl(url)) {
-                                  throw Exception('Could not launch $url');
-                                }
+                                // final Uri url =
+                                //     Uri.parse('https://pickupvara.com/');
+                                // if (!await launchUrl(url)) {
+                                //   throw Exception('Could not launch $url');
+                                // }
                               },
                               child: Image.asset(
                                 "assets/animations/internet.png",
