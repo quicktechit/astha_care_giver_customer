@@ -19,6 +19,7 @@ import 'package:jatri_app/src/widgets/car_live_bidding_widget.dart';
 import 'package:jatri_app/src/widgets/divider_widget.dart';
 import 'package:jatri_app/src/widgets/slider/slider_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../../controllers/common_controller.dart';
 import '../../controllers/fixed_trip/fix_trip_controller.dart';
@@ -134,7 +135,7 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
               initialData: _remainingTime,
               builder: (context, snapshot) {
                 final remainingTime = snapshot.data!;
-                debugPrint('Remaining Time ::: ${remainingTime}');
+                // debugPrint('Remaining Time ::: ${remainingTime}');
                 return Text(
                   '${_formatDuration(remainingTime)}',
                   style: TextStyle(fontSize: 15, color: Colors.white),
@@ -208,101 +209,100 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                 }
               }),
             ),
-            Container(
-              padding: EdgeInsets.all(16),
-              // Adjust the height as needed
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      cancelTripRequestReason(
-                        context,
-                       box.read("ID").toString(),
-                        'req',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    cancelTripRequestReason(
+                      context,
+                     box.read("ID").toString(),
+                      'req',
+                    );
+                  },
+                  child: Container(
+                    width: Get.width / 2.5,height: 35,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 3,
+                          blurRadius: 4,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                      color: maincolor,
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: KText(
+                      text: 'Cancel Service',
+                      color: Colors.white,fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () async {
+                    if (selectedCarIndex != null &&
+                        selectedCarIndex! <
+                            liveBiddingController.liveBidData.length) {
+                      final LiveBidData selectedBidData =
+                          liveBiddingController
+                              .liveBidData[selectedCarIndex!];
+
+                      final ReturnBidConfirmController confirmController =
+                          ReturnBidConfirmController();
+
+                      await confirmController.bidConfirm(
+                        bidId: selectedBidData.id.toString(),
+                        tripId: selectedBidData.tripId.toString(),
                       );
-                    },
-                    child: Container(
-                      width: Get.width / 3,
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 3,
-                            blurRadius: 4,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                        color: maincolor,
-                        borderRadius: BorderRadius.circular(10.r),
-                      ),
-                      child: KText(
-                        text: 'Cancel Service',
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+
+                      if (confirmController.bidConfirmModel.value.status ==
+                          "success") {
+                        Get.find<CommonController>().getCustomerStatus(0);
+                        _rentalTripSubmitController.liveBidStart.value=false;
+                        box.write("liveBidStart",false);
+                        Get.offAll(DashboardView());
+                        // Get.to(() => LiveBiddingConfirmScreen(
+                        //     rentalBidConfirm: confirmController
+                        //           .bidConfirmModel.value.data!,
+                        //       id: '${confirmController.bidConfirmModel.value.data?.tripConfirm?.trackingId}',
+                        //     ));
+                      } else {}
+                    }
+                  },
+                  child: Container(
+                    width: Get.width / 2.5,
+                    height: 35,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 3,
+                          blurRadius: 4,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                      color: maincolor,
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: KText(
+                      text: 'Continue Service',
+                      color: Colors.white,fontSize: 13,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () async {
-                      if (selectedCarIndex != null &&
-                          selectedCarIndex! <
-                              liveBiddingController.liveBidData.length) {
-                        final LiveBidData selectedBidData =
-                            liveBiddingController
-                                .liveBidData[selectedCarIndex!];
+                ),
 
-                        final ReturnBidConfirmController confirmController =
-                            ReturnBidConfirmController();
-
-                        await confirmController.bidConfirm(
-                          bidId: selectedBidData.id.toString(),
-                          tripId: selectedBidData.tripId.toString(),
-                        );
-
-                        if (confirmController.bidConfirmModel.value.status ==
-                            "success") {
-                          Get.find<CommonController>().getCustomerStatus(0);
-                          _rentalTripSubmitController.liveBidStart.value=false;
-                          box.write("liveBidStart",false);
-                          Get.offAll(DashboardView());
-                          // Get.to(() => LiveBiddingConfirmScreen(
-                          //     rentalBidConfirm: confirmController
-                          //           .bidConfirmModel.value.data!,
-                          //       id: '${confirmController.bidConfirmModel.value.data?.tripConfirm?.trackingId}',
-                          //     ));
-                        } else {}
-                      }
-                    },
-                    child: Container(
-                      width: Get.width / 3,
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 3,
-                            blurRadius: 4,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                        color: maincolor,
-                        borderRadius: BorderRadius.circular(10.r),
-                      ),
-                      child: KText(
-                        text: 'Continue Service',
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-
-                ],
-              ),
+              ],
             ),
+            if (selectedCarIndex == null)
+              10.heightBox,
             if (selectedCarIndex == null)
               Column(
                 children: [
@@ -311,9 +311,7 @@ class _LiveBiddingPageState extends State<LiveBiddingPage>
                   SliderWidget(),
                 ],
               ),
-            SizedBox(
-              height: 30,
-            ),
+            30.heightBox
           ],
         ),
       ),

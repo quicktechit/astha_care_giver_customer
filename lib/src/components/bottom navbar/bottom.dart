@@ -6,9 +6,9 @@ import 'package:jatri_app/src/controllers/home_controller/home_controller.dart';
 import 'package:jatri_app/src/pages/Trip%20History/trip_history_page.dart';
 import 'package:jatri_app/src/pages/home/homePage.dart';
 import 'package:jatri_app/src/pages/profile/profile_dashboard.dart';
+
 import '../../controllers/common_controller.dart';
 import '../../controllers/profile controllers/profile_get_controller.dart';
-import '../../pages/profile/profileEditPage.dart';
 import '../../pages/profile/profilePage.dart';
 
 class DashboardView extends StatefulWidget {
@@ -25,22 +25,23 @@ class _DashboardViewState extends State<DashboardView> {
   @override
   void initState() {
     super.initState();
-    profileController.getProfileData();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Delay for 10 seconds
-      controller.getCustomerStatus('');
-      Future.delayed(Duration(seconds: 1), () {
-        if (profileController.customerData.value.name == null) {
-          homeController.selectedItemPosition.value = 2;
-          Get.to(()=>ProfilePage());
-          Get.snackbar(
-            'Warning',
-            'Please Update Your Profile to Continue',
-            colorText: Colors.white,
-            backgroundColor: Colors.red,
-            duration: Duration(seconds: 10),
-          );
-        }
+    profileController.getProfileData().then((value) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        // Delay for 10 seconds
+        controller.getCustomerStatus('');
+        Future.delayed(Duration(seconds: 1), () {
+          if (profileController.customerData.value.name == null) {
+            homeController.selectedItemPosition.value = 2;
+            Get.to(() => ProfilePage());
+            Get.snackbar(
+              'Warning',
+              'Please Update Your Profile to Continue',
+              colorText: Colors.white,
+              backgroundColor: Colors.red,
+              duration: Duration(seconds: 10),
+            );
+          }
+        });
       });
     });
   }

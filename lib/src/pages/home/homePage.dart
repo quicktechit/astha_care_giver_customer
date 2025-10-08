@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
     fixedTripController.fetchReasonList();
     super.initState();
     log(box.read("liveBidStatus").toString(), name: "live bid test====>>>");
-
+commonController.getCustomerStatus('');
     homeController.fetchTravelData();
     homeController.fetchOfferData();
     homeController.fetchDriverData();

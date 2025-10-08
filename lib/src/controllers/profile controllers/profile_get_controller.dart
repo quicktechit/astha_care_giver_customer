@@ -26,7 +26,7 @@ class ProfileController extends GetxController {
     super.onInit();
   }
 
-  void getProfileData({String? token}) async {
+  Future getProfileData({String? token}) async {
     try {
       isLoading(true);
 
