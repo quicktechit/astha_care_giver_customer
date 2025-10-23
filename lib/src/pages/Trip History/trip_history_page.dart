@@ -41,11 +41,13 @@ class _AllTripHistoryPageState extends State<AllTripHistoryPage>
     // rentalTripHistoryController.getReturnTrip();
     // rentalTripHistoryController.getTrip();
     // rentalTripHistoryController.getDivisionTrip();
-    rentalTripHistoryController.getAllConfirmSortingTrip();
-    rentalTripHistoryController.getAllSortingTrip();
-    rentalTripHistoryController.getAllCancelSortingTrip();
-    rentalTripHistoryController.getAllCompleteSortingTrip();
-    rentalTripHistoryController.getAllStartSortingTrip();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      rentalTripHistoryController.getAllConfirmSortingTrip();
+      rentalTripHistoryController.getAllSortingTrip();
+      rentalTripHistoryController.getAllCancelSortingTrip();
+      rentalTripHistoryController.getAllCompleteSortingTrip();
+      rentalTripHistoryController.getAllStartSortingTrip();
+    });
     controller.refresh();
     super.initState();
   }
