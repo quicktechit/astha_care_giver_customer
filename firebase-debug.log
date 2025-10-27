@@ -1,0 +1,30 @@
+[debug] [2025-10-27T09:42:31.733Z] ----------------------------------------------------------------------
+[debug] [2025-10-27T09:42:31.737Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Quicktech Apps Pc 1\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js projects:list --json
+[debug] [2025-10-27T09:42:31.738Z] CLI Version:   13.20.2
+[debug] [2025-10-27T09:42:31.738Z] Platform:      win32
+[debug] [2025-10-27T09:42:31.738Z] Node Version:  v20.18.0
+[debug] [2025-10-27T09:42:31.738Z] Time:          Mon Oct 27 2025 15:42:31 GMT+0600 (Bangladesh Standard Time)
+[debug] [2025-10-27T09:42:31.738Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-27T09:42:31.840Z] Object "" in "firebase.json" has unknown property: {"additionalProperty":"flutter"}
+[debug] [2025-10-27T09:42:31.843Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-10-27T09:42:31.844Z] > authorizing via signed-in user (redoykhan8141@gmail.com)
+[debug] [2025-10-27T09:42:31.849Z] Checked if tokens are valid: false, expires at: 1761483406967
+[debug] [2025-10-27T09:42:31.850Z] Checked if tokens are valid: false, expires at: 1761483406967
+[debug] [2025-10-27T09:42:31.850Z] > refreshing access token with scopes: []
+[debug] [2025-10-27T09:42:31.852Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-27T09:42:31.853Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-27T09:42:31.917Z] Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:61:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Writable.write (node:internal/streams/writable:508:10)
+    at Ora.start (C:\Users\Quicktech Apps Pc 1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\ora\index.js:304:17)
+    at Command.actionFn (C:\Users\Quicktech Apps Pc 1\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\projects-list.js:48:73)
+    at C:\Users\Quicktech Apps Pc 1\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:228:25
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-10-27T09:42:32.107Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-27T09:42:32.107Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-27T09:42:32.118Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
