@@ -28,20 +28,23 @@ class _DashboardViewState extends State<DashboardView> {
     profileController.getProfileData().then((value) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         // Delay for 10 seconds
-        controller.getCustomerStatus('');
-        Future.delayed(Duration(seconds: 1), () {
-          if (profileController.customerData.value.name == null) {
-            homeController.selectedItemPosition.value = 2;
+        controller
+            .getCustomerStatus('')
+            .then((value) => Future.delayed(Duration(seconds: 1), () {
+                  if (profileController.customerData.value.name == null) {
+                    homeController.selectedItemPosition.value = 2;
             Get.to(() => ProfilePage());
             Get.snackbar(
-              'Warning',
-              'Please Update Your Profile to Continue',
-              colorText: Colors.white,
-              backgroundColor: Colors.red,
-              duration: Duration(seconds: 10),
-            );
+                      'please update your profile',
+                      '',
+                      colorText: Colors.black,
+                      backgroundColor: Colors.white,
+                      borderColor: maincolor,
+                      borderRadius: 13.0,borderWidth:1.3,
+                      duration: Duration(seconds: 10),
+                    );
           }
-        });
+                }));
       });
     });
   }

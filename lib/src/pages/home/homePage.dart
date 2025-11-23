@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
@@ -20,6 +21,7 @@ import 'package:jatri_app/src/widgets/custom%20app%20bar/app_bar_widget.dart';
 import 'package:jatri_app/src/widgets/divider_widget.dart';
 import 'package:jatri_app/src/widgets/slider/slider_widget.dart';
 import 'package:jatri_app/src/widgets/text/kText.dart';
+
 import '../../configs/appList.dart';
 import '../../controllers/fixed_trip/fix_trip_controller.dart';
 import '../../controllers/return trip controller/return_filter_controller.dart';
@@ -218,9 +220,6 @@ commonController.getCustomerStatus('');
               }
 
             }),
-
-
-
             sizeH10,
 
             DividerWidget(title: "Choose Your Vehicle"),

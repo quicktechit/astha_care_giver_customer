@@ -31,7 +31,7 @@ class IntroPage extends StatelessWidget {
     return IntroductionScreen(
       key: controller.introKey,
       globalBackgroundColor: Colors.white,
-      controlsPadding: EdgeInsets.all(5),
+      // controlsPadding: EdgeInsets.all(5),
       showSkipButton: true,
       skip: const Text("Skip"),
       next: const Icon(Icons.arrow_forward),
