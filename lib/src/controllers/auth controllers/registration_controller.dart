@@ -46,13 +46,14 @@ class RegistrationController extends GetxController {
           if (responseBody['status'] == 'success') {
             print(responseBody);
            otp.value= responseBody['otp'];
-           debugPrint('OTP Gettng :: ${otp.value}');
+           debugPrint('OTP Getting :: ${otp.value}');
            if(customerPhone=="01641634899"){
              Get.put(OTPController()).oTPMethod(phone: customerPhone, otp: otp.value);
            }
 
             /// show snakbar msg
-            Get.snackbar('Success', 'OTP Send Successfully: ${otp.value}',
+            // Get.snackbar('Success', 'OTP Send Successfully: ${otp.value}',
+            Get.snackbar('Success', 'Your Astha Caregiver Verifications Code Is: ${otp.value}',
                 duration: Duration(seconds: 30),
                 colorText: white, backgroundColor: Colors.black);
           } else {
