@@ -124,6 +124,7 @@ class Translation extends Translations {
           "Choose Your Vehicle": 'Choose Your Service',
           "Others Services & Offers": "Others Services & Offers",
           "Partnership With": "Partnership With",
+          "agencyList": "Agency List",
           'Logout': 'Logout',
           "No notifications found": 'No notifications found',
           "No promo codes available yet!": 'No promo codes available yet!',

@@ -340,7 +340,7 @@ commonController.getCustomerStatus('');
             //       );
             //     }),
             20.verticalSpace,
-            DividerWidget(title: "Partnership With"),
+            DividerWidget(title: "agencyList"),
             10.verticalSpace,
             Obx(
                   () {
